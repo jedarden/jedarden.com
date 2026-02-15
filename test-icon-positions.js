@@ -4,8 +4,8 @@ async function testIconPositions() {
     const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
 
-    console.log('📱 Loading website...');
-    await page.goto('https://jedarden.github.io/jedarden.com/');
+    console.log('📱 Loading local website...');
+    await page.goto('http://localhost:8080/');
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(2000);
 

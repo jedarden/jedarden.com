@@ -1,0 +1,345 @@
+/* Project Visual Animations */
+
+.project-visual {
+    margin: 50px auto;
+    max-width: 800px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* FORGE - Agent Orchestration Visualization */
+.visual-forge {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+.agent-node {
+    background: linear-gradient(135deg, #8B1A1A, #A52A2A);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(139, 26, 26, 0.3);
+}
+
+.agent-node:nth-child(1) { animation-delay: 0s; }
+.agent-node:nth-child(2) { animation-delay: 0.3s; }
+.agent-node:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+.control-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: #B8534E;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    z-index: 10;
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Sun Simulator - Sun Movement */
+.visual-sunsim {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #FFE5B4 100%);
+}
+
+.sun-path {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.sun {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #FDB813 0%, #F39C12 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(253, 184, 19, 0.6);
+    animation: sunMove 8s ease-in-out infinite;
+}
+
+@keyframes sunMove {
+    0% { left: 10%; top: 70%; }
+    50% { left: 50%; top: 10%; }
+    100% { left: 90%; top: 70%; }
+}
+
+.compass-rose {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    opacity: 0.3;
+}
+
+/* Face Detection - Face Scan Animation */
+.visual-face {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.face-outline {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto;
+    border: 3px solid #8B1A1A;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+}
+
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #E74C3C, transparent);
+    animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes scan {
+    0%, 100% { top: 0; }
+    50% { top: 100%; }
+}
+
+.detection-point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #E74C3C;
+    border-radius: 50%;
+    animation: blink 1s ease-in-out infinite;
+}
+
+.detection-point:nth-child(2) { top: 30%; left: 30%; animation-delay: 0.2s; }
+.detection-point:nth-child(3) { top: 30%; right: 30%; animation-delay: 0.4s; }
+.detection-point:nth-child(4) { top: 50%; left: 50%; animation-delay: 0.6s; }
+
+@keyframes blink {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* Gait Analysis - Walking Figure */
+.visual-gait {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.skeleton-figure {
+    width: 80px;
+    height: 160px;
+    position: relative;
+    animation: walk 2s ease-in-out infinite;
+}
+
+.skeleton-figure:nth-child(2) { animation-delay: 0.5s; }
+.skeleton-figure:nth-child(3) { animation-delay: 1s; }
+
+@keyframes walk {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    75% { transform: translateY(-5px); }
+}
+
+.joint {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #8B1A1A;
+    border-radius: 50%;
+}
+
+/* Options Trading - Chart Animation */
+.visual-options {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.chart-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #8B1A1A;
+}
+
+.price-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to right,
+        transparent 0%,
+        #8B1A1A 10%,
+        #A52A2A 30%,
+        #8B1A1A 50%,
+        #B8534E 70%,
+        #A52A2A 90%,
+        transparent 100%
+    );
+    clip-path: polygon(
+        0% 100%, 5% 80%, 15% 60%, 25% 75%,
+        35% 40%, 45% 55%, 55% 30%, 65% 45%,
+        75% 20%, 85% 35%, 95% 50%, 100% 100%
+    );
+    animation: fluctuate 4s ease-in-out infinite;
+}
+
+@keyframes fluctuate {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* News Trading - News Feed Animation */
+.visual-newstrading {
+    width: 100%;
+}
+
+.news-ticker {
+    background: #1D1D1F;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    animation: slideIn 2s ease-in-out infinite;
+}
+
+.news-ticker:nth-child(2) { animation-delay: 0.7s; opacity: 0; }
+.news-ticker:nth-child(3) { animation-delay: 1.4s; opacity: 0; }
+
+@keyframes slideIn {
+    0% { transform: translateX(100%); opacity: 0; }
+    20%, 80% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(-100%); opacity: 0; }
+}
+
+/* Asteroid - Space Scene */
+.visual-asteroid {
+    background: #000;
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.asteroid {
+    position: absolute;
+    background: #86868B;
+    border-radius: 50%;
+    animation: float 6s linear infinite;
+}
+
+.asteroid:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.asteroid:nth-child(2) {
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    animation-delay: 2s;
+}
+
+.asteroid:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    top: 70%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    from {
+        left: -60px;
+        transform: rotate(0deg);
+    }
+    to {
+        left: calc(100% + 60px);
+        transform: rotate(360deg);
+    }
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Generic Tech Stack Visual */
+.tech-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.tech-box {
+    flex: 1;
+    background: white;
+    border: 2px solid #8B1A1A;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: #8B1A1A;
+}
+
+.flow-arrow {
+    font-size: 2rem;
+    color: #8B1A1A;
+    animation: pulse 2s ease-in-out infinite;
+}

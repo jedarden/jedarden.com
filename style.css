@@ -200,7 +200,7 @@ body {
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    z-index: 10;
+    z-index: 5;
 }
 
 .project-icon {
@@ -213,8 +213,9 @@ body {
 /* Scrolling Content */
 .project-content-scroll {
     position: relative;
-    z-index: 20;
+    z-index: 10;
     pointer-events: auto;
+    background: var(--cream);
 }
 
 .content-section {
