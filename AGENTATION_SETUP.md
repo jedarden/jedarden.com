@@ -1,57 +1,57 @@
 # Agentation Integration Setup
 
-Your portfolio website now has integrated feedback collection that sends annotations directly to your Claude Code sessions!
+Your portfolio website now uses the **actual Agentation React component** for visual feedback!
+
+## What Changed
+
+The site has been migrated from vanilla HTML/CSS/JS to **React 19 + Vite** to support the official Agentation component. The design, animations, and all visual elements remain identical - only the underlying tech stack changed.
 
 ## How It Works
 
 1. **Visitor Experience:**
-   - Sees a floating feedback button (💬) in bottom-right corner
-   - Clicks button to enter annotation mode
-   - Clicks any element on the page to add feedback
-   - Enters their comment/feedback
-   - Visual markers show where feedback was left
-   - Feedback automatically syncs to your Claude Code session
+   - Sees Agentation toolbar in bottom-right corner
+   - Clicks to activate annotation mode
+   - Clicks, drags, or selects text to annotate
+   - Adds feedback comments
+   - Feedback syncs to Agentation MCP server
 
-2. **Your Experience:**
-   - Annotations appear in real-time in Claude Code
-   - Can view all pending feedback with MCP tools
-   - Can process feedback, make changes, and mark as resolved
-   - Supports "watch mode" for autonomous feedback processing
+2. **Your Experience (Claude Code):**
+   - Configure agentation-mcp server
+   - Annotations appear in real-time via MCP tools
+   - Process feedback and make changes
+   - Resolve annotations with summaries
+   - Supports watch mode for autonomous processing
 
 ## Setup Instructions
 
 ### 1. Configure MCP Server in Claude Code
 
-Add to your `~/.claude/settings.json`:
+**Quick setup:**
+```bash
+claude mcp add agentation -- npx agentation-mcp server
+```
 
+**Or manual setup - add to `~/.claude/settings.json`:**
 ```json
 {
   "mcpServers": {
     "agentation": {
       "command": "npx",
-      "args": ["agentation-mcp", "server"],
-      "env": {
-        "AGENTATION_STORE_PATH": "/home/coder/.agentation/portfolio-feedback.db"
-      }
+      "args": ["agentation-mcp", "server"]
     }
   }
 }
 ```
 
-Or use the Claude Code MCP command:
-```bash
-claude mcp add agentation -- npx agentation-mcp server
-```
-
 ### 2. Restart Claude Code
 
-The Agentation MCP server will start automatically and listen on http://localhost:4747
+The Agentation MCP server will start automatically on http://localhost:4747
 
 ### 3. Test the Integration
 
-1. Open your portfolio: https://jedarden.github.io/jedarden.com/
-2. Click the feedback button (💬)
-3. Click any element and add a test comment
+1. Visit your portfolio: https://jedarden.github.io/jedarden.com/
+2. Click the Agentation toolbar (bottom-right corner)
+3. Click any element and add a test annotation
 4. In Claude Code, run:
    ```
    Use agentation_get_all_pending to see my feedback
@@ -91,46 +91,62 @@ Then simply say "watch mode" and Claude will automatically:
 - Report back what was fixed
 - Continue monitoring
 
-## Feedback Widget Features
+## Development
 
-The feedback widget captures:
-- Element selector (CSS path)
-- Element type (button, div, etc.)
-- CSS classes
-- Position on page
-- Nearby text content
-- User's comment
-- Timestamp
-
-All feedback is:
-- Stored locally (localStorage) as backup
-- Synced to MCP server in real-time
-- Available in Claude Code immediately
-- Persistent across page reloads
-
-## Testing Locally
-
-To test with a local server before deploying:
+To work on the portfolio locally:
 
 ```bash
-# Start local web server
-cd ~/jedarden.com
-python3 -m http.server 9000
-
-# Open in browser
-open http://localhost:9000
-
-# Submit feedback and check Claude Code
-# Use: agentation_get_all_pending
+cd ~/jedarden.com/portfolio-react
+npm install
+npm run dev
 ```
 
-## Production Deployment
+Visit http://localhost:5173 - the Agentation widget will be active.
 
-The widget is already included in your GitHub Pages deployment. When visitors submit feedback:
+## Deployment
 
-1. If you have Claude Code running → Feedback appears immediately
-2. If you don't → Feedback is stored on the server
-3. Next time you start Claude Code → All accumulated feedback is available
+### Option 1: Automated Deploy Script
+
+```bash
+cd ~/jedarden.com/portfolio-react
+npm run deploy
+```
+
+This builds the site and pushes to gh-pages branch automatically.
+
+### Option 2: Manual Deploy
+
+```bash
+cd ~/jedarden.com/portfolio-react
+npm run build
+
+# Copy build to root
+cp -r dist/* ../
+
+# Commit and push
+cd ..
+git add -A
+git commit -m "Update portfolio"
+git push origin main
+```
+
+## Agentation Widget Features
+
+The official Agentation component captures:
+- Element selectors (CSS paths, IDs, classes)
+- Element position and bounding box
+- Text selections
+- Multi-element selections (drag to select)
+- Area annotations (annotate empty space)
+- Animation states (can pause all animations)
+- Nearby text content
+- Timestamps
+
+All feedback is:
+- Synced to MCP server in real-time
+- Available in Claude Code immediately via tools
+- Persistent across sessions
+- Structured for AI agent consumption
 
 ## Architecture
 
@@ -146,44 +162,26 @@ Git Commit & Push
 Portfolio Updated!
 ```
 
-## Security Notes
-
-- The MCP server runs locally (localhost only)
-- Feedback is stored in SQLite database
-- No authentication required (it's your local machine)
-- Widget works offline (stores in localStorage)
-
-## Customization
-
-Edit `feedback-widget.js` to customize:
-- Button position and style
-- Annotation behavior
-- Visual markers
-- Summary format
-
 ## Troubleshooting
 
-**"Agentation server not available"**
-- Make sure Claude Code is running
-- Check that MCP server started: `lsof -i:4747`
-- Restart Claude Code to reload MCP config
-
-**Feedback not appearing in Claude Code**
-- Verify session ID matches: check localStorage in browser console
-- Use `agentation_list_sessions` to see all sessions
-- Check server logs: `~/.agentation/portfolio-feedback.db`
-
-**Widget not showing**
+**"Agentation toolbar not showing"**
+- Hard refresh (Cmd+Shift+R / Ctrl+Shift+R)
 - Check browser console for errors
-- Ensure `feedback-widget.js` is loading
-- Try hard refresh (Cmd+Shift+R)
+- Verify React app is running (dev mode) or built correctly (production)
 
-## Next Steps
+**"Annotations not appearing in Claude Code"**
+- Make sure MCP server is configured and Claude Code is restarted
+- Use `agentation_list_sessions` to see all sessions
+- Check that server is running: `lsof -i:4747`
 
-1. ✅ Widget is live on your portfolio
-2. ✅ MCP server configuration ready
-3. ⏳ Restart Claude Code to enable MCP server
-4. ⏳ Test by submitting feedback
-5. ⏳ Process your first feedback item!
+**"Development server won't start"**
+- `cd ~/jedarden.com/portfolio-react && npm install`
+- Check port 5173 isn't in use: `lsof -i:5173`
 
-Enjoy your new direct feedback loop! 🚀
+## Learn More
+
+- **Agentation Docs**: https://agentation.dev
+- **Agentation GitHub**: https://github.com/benjitaylor/agentation
+- **Agentation MCP**: https://github.com/benjitaylor/agentation/tree/main/mcp
+
+Enjoy your visual feedback loop! 🚀
