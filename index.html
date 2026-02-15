@@ -3,34 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jed Arden</title>
+    <title>Jed Arden - Developer & Builder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Jed Arden</h1>
-            <p class="tagline">Developer • Engineer • Builder</p>
-        </header>
-
-        <main>
-            <section class="about">
-                <h2>About</h2>
-                <p>Welcome to my corner of the internet.</p>
-            </section>
-
-            <section class="links">
-                <h2>Connect</h2>
-                <ul>
-                    <li><a href="https://github.com/jedarden" target="_blank">GitHub</a></li>
-                    <li><a href="https://linkedin.com/in/jedarden" target="_blank">LinkedIn</a></li>
-                </ul>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 Jed Arden</p>
-        </footer>
+    <!-- Floating Logo -->
+    <div class="floating-logo">
+        <img src="logo.jpg" alt="Jed Arden" id="logo">
     </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Jed Arden</h1>
+            <p class="hero-subtitle">Developer • Engineer • Builder</p>
+            <p class="hero-description">Building intelligent systems for AI-powered development</p>
+            <div class="hero-links">
+                <a href="https://github.com/jedarden" target="_blank" class="btn-primary">GitHub</a>
+                <a href="https://linkedin.com/in/jedarden" target="_blank" class="btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <!-- FORGE -->
+        <div class="project-card" data-project="forge">
+            <div class="project-content">
+                <h3>FORGE</h3>
+                <p class="project-tagline">Federated Orchestration & Resource Generation Engine</p>
+                <p class="project-description">
+                    Intelligent control panel for AI coding agents. FORGE provides a unified interface for
+                    managing autonomous development workflows, resource allocation, and multi-agent orchestration.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">AI Orchestration</span>
+                    <span class="tech-tag">Agent Management</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/forge" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beads -->
+        <div class="project-card" data-project="beads">
+            <div class="project-content">
+                <h3>Beads</h3>
+                <p class="project-tagline">A Memory Upgrade for Your Coding Agent</p>
+                <p class="project-description">
+                    Task management and memory system inspired by Steve Yegge's approach. Beads provides
+                    persistent context and intelligent task tracking for AI coding agents, enabling
+                    long-running autonomous development workflows.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Memory Systems</span>
+                    <span class="tech-tag">Task Management</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/beads" target="_blank" class="btn-project">View on GitHub →</a>
+                    <a href="https://github.com/jedarden/beads_viewer" target="_blank" class="btn-project-secondary">Viewer →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASP -->
+        <div class="project-card" data-project="clasp">
+            <div class="project-content">
+                <h3>CLASP</h3>
+                <p class="project-tagline">Claude Language Agent Super Proxy</p>
+                <p class="project-description">
+                    Run Claude Code with any LLM provider. CLASP acts as a translation layer, enabling
+                    Claude Code workflows with alternative language models while maintaining compatibility
+                    with the original tool interfaces.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">LLM Proxy</span>
+                    <span class="tech-tag">Multi-Provider</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/CLASP" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Moltbook -->
+        <div class="project-card" data-project="moltbook">
+            <div class="project-content">
+                <h3>Moltbook</h3>
+                <p class="project-tagline">The Social Network for AI Agents</p>
+                <p class="project-description">
+                    A revolutionary platform where AI agents interact, share knowledge, and collaborate.
+                    Features real-time feeds, nested comments, voting systems, and responsive design.
+                    Built with Next.js 14, TypeScript, and Tailwind CSS.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Next.js 14</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                    <span class="tech-tag">Real-time</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/moltbook-frontend" target="_blank" class="btn-project">Frontend →</a>
+                    <a href="https://github.com/jedarden/api" target="_blank" class="btn-project-secondary">API →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DUCK-E -->
+        <div class="project-card" data-project="ducke">
+            <div class="project-content">
+                <h3>DUCK-E 🦆</h3>
+                <p class="project-tagline">The Duck That Talks Back</p>
+                <p class="project-description">
+                    AI-powered voice assistant that revolutionizes rubber duck debugging by actively
+                    engaging in your debugging process. Built with OpenAI Realtime API, FastAPI, and
+                    AutoGen framework for intelligent, real-time voice conversations about your code.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">OpenAI Realtime</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">AutoGen</span>
+                    <span class="tech-tag">Voice AI</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/duck-e" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CCDash -->
+        <div class="project-card" data-project="ccdash">
+            <div class="project-content">
+                <h3>CCDash</h3>
+                <p class="project-tagline">Lightweight TUI Dashboard</p>
+                <p class="project-description">
+                    Terminal-based dashboard for monitoring system resources, Claude Code token usage,
+                    and tmux sessions. Beautiful, efficient, and built for developers who live in the terminal.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TUI</span>
+                    <span class="tech-tag">Monitoring</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/ccdash" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kalshi Tail Trader -->
+        <div class="project-card" data-project="kalshi">
+            <div class="project-content">
+                <h3>Kalshi Tail Trader</h3>
+                <p class="project-tagline">Ultra-Low Latency Trading System</p>
+                <p class="project-description">
+                    Automated trading system for Kalshi prediction markets featuring 5 distinct strategies
+                    with ultra-low latency (&lt;100ms target). Built for high-frequency trading in
+                    event-driven markets.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Algorithmic Trading</span>
+                    <span class="tech-tag">Low Latency</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/kalshi-tail-trader" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MANA -->
+        <div class="project-card" data-project="mana">
+            <div class="project-content">
+                <h3>MANA</h3>
+                <p class="project-tagline">Memory-Augmented Neural Assistant</p>
+                <p class="project-description">
+                    Adaptive learning system for Claude Code context injection. MANA intelligently manages
+                    and retrieves contextual information to enhance AI coding agent performance across
+                    long-running development sessions.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">Context Management</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/MANA" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ringmaster -->
+        <div class="project-card" data-project="ringmaster">
+            <div class="project-content">
+                <h3>Ringmaster</h3>
+                <p class="project-tagline">SDLC Orchestration Platform</p>
+                <p class="project-description">
+                    Complete software development lifecycle orchestration platform designed for AI coding
+                    agents. Manages workflows from planning through deployment, coordinating multiple
+                    agents across complex development tasks.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">DevOps</span>
+                    <span class="tech-tag">Orchestration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/jedarden/ringmaster" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Jed Arden. Building the future of AI-powered development.</p>
+            <div class="footer-links">
+                <a href="https://github.com/jedarden" target="_blank">GitHub</a>
+                <a href="https://github.com/ardenone" target="_blank">Ardenone</a>
+                <a href="https://linkedin.com/in/jedarden" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
