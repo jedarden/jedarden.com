@@ -102,24 +102,3 @@ if (scrollIndicator) {
         });
     });
 }
-
-// Optional: Subtle parallax on floating logo based on mouse
-let targetX = 0;
-let targetY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    targetX = (e.clientX - window.innerWidth / 2) * 0.002;
-    targetY = (e.clientY - window.innerHeight / 2) * 0.002;
-});
-
-function updateLogoParallax() {
-    gsap.to(logo, {
-        x: targetX,
-        y: targetY,
-        duration: 0.5,
-        ease: 'power2.out'
-    });
-    requestAnimationFrame(updateLogoParallax);
-}
-
-updateLogoParallax();
