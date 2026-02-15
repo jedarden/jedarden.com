@@ -10,16 +10,7 @@ gsap.to('.hero-content', {
     ease: 'power3.out'
 });
 
-// Animate section title
-gsap.to('.section-title', {
-    scrollTrigger: {
-        trigger: '.section-title',
-        start: 'top 80%',
-    },
-    opacity: 1,
-    duration: 1,
-    ease: 'power3.out'
-});
+// Section title is now always visible (no animation needed)
 
 // Logo container and image
 const logo = document.getElementById('logo');
