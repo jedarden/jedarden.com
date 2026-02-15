@@ -136,13 +136,16 @@ projectCards.forEach((card, index) => {
         }
     });
 
-    // Smooth transition between projects
+    // Smooth transition between projects with rotation
     const nextCard = projectCards[index + 1];
     if (nextCard) {
         const nextName = nextCard.getAttribute('data-project');
         const nextPosition = projectPositions[nextName];
 
         if (nextPosition) {
+            // Calculate rotation amount based on direction
+            const rotationAmount = (index % 2 === 0) ? 360 : -360;
+
             ScrollTrigger.create({
                 trigger: card,
                 start: 'bottom 50%',
@@ -160,7 +163,8 @@ projectCards.forEach((card, index) => {
 
                     const interpolatedTop = gsap.utils.interpolate(currentTop, nextTop, progress);
                     const interpolatedLeft = gsap.utils.interpolate(currentLeft, nextLeft, progress);
-                    const interpolatedRotation = gsap.utils.interpolate(position.rotation, nextPosition.rotation, progress);
+                    // Rotate during transition, but end at 0
+                    const interpolatedRotation = gsap.utils.interpolate(0, rotationAmount, progress < 0.5 ? progress * 2 : (1 - progress) * 2);
                     const interpolatedScale = gsap.utils.interpolate(position.scale, nextPosition.scale, progress);
 
                     gsap.to(logoContainer, {
