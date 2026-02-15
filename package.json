@@ -6,6 +6,7 @@
     "test:positioning": "node test-positioning.js"
   },
   "devDependencies": {
+    "agentation-mcp": "^1.1.1",
     "playwright": "^1.40.0"
   }
 }
