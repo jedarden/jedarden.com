@@ -21,27 +21,53 @@ gsap.to('.section-title', {
     ease: 'power3.out'
 });
 
-// Floating logo animations
+// Logo container and image
 const logo = document.getElementById('logo');
 const logoContainer = document.querySelector('.floating-logo');
 
-// Logo scale down on initial scroll
-gsap.to(logoContainer, {
-    scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1,
-    },
-    scale: 0.7,
-    top: '20px',
-    ease: 'none'
+// Define unique positions for each project (viewport-relative)
+// Format: { top: '20vh', left: '10vw', rotation: 45, scale: 1.2 }
+const projectPositions = {
+    hero: { top: '40px', left: '50%', x: '-50%', rotation: 0, scale: 1 },
+    forge: { top: '15vh', left: '85vw', x: '-50%', rotation: 45, scale: 1.3 },
+    sunsim: { top: '50vh', left: '10vw', x: '-50%', rotation: -30, scale: 1.2 },
+    face: { top: '20vh', left: '50%', x: '-50%', rotation: 90, scale: 1.4 },
+    gait: { top: '70vh', left: '80vw', x: '-50%', rotation: -60, scale: 1.15 },
+    options: { top: '30vh', left: '15vw', x: '-50%', rotation: 120, scale: 1.35 },
+    newstrading: { top: '60vh', left: '50%', x: '-50%', rotation: -90, scale: 1.25 },
+    asteroid: { top: '25vh', left: '75vw', x: '-50%', rotation: 180, scale: 1.3 },
+    clasp: { top: '55vh', left: '20vw', x: '-50%', rotation: -45, scale: 1.2 },
+    moltbook: { top: '35vh', left: '85vw', x: '-50%', rotation: 60, scale: 1.4 },
+    ducke: { top: '65vh', left: '15vw', x: '-50%', rotation: -120, scale: 1.35 },
+    ccdash: { top: '40vh', left: '75vw', x: '-50%', rotation: 30, scale: 1.25 },
+    mana: { top: '50vh', left: '50%', x: '-50%', rotation: -150, scale: 1.3 },
+    ringmaster: { top: '30vh', left: '25vw', x: '-50%', rotation: 90, scale: 1.2 }
+};
+
+// Initial position
+gsap.set(logoContainer, projectPositions.hero);
+
+// Hero section - scale down and prepare for first project
+ScrollTrigger.create({
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1,
+    onUpdate: (self) => {
+        const progress = self.progress;
+        // Transition from hero to first project position
+        gsap.to(logoContainer, {
+            scale: gsap.utils.interpolate(1, 0.8, progress),
+            duration: 0.1,
+            ease: 'none'
+        });
+    }
 });
 
 // Get all project cards
 const projectCards = document.querySelectorAll('.project-card');
 
-// Animate each project card with extended spacing
+// Animate each project card
 projectCards.forEach((card, index) => {
     // Card entrance animation
     gsap.to(card, {
@@ -56,128 +82,116 @@ projectCards.forEach((card, index) => {
         ease: 'power2.out'
     });
 
-    // Extended logo animations for each project with more vertical space
     const projectName = card.getAttribute('data-project');
+    const position = projectPositions[projectName];
 
-    // More dramatic transformations based on project
-    const transforms = {
-        forge: { rotation: 360, x: 60, y: 20, scale: 1.3 },
-        sunsim: { rotation: -180, x: -50, y: -15, scale: 1.2 },
-        face: { rotation: 180, x: 70, y: 25, scale: 1.25 },
-        gait: { rotation: -360, x: -60, y: -20, scale: 1.35 },
-        options: { rotation: 270, x: 50, y: 30, scale: 1.4 },
-        newstrading: { rotation: -270, x: -70, y: -25, scale: 1.2 },
-        asteroid: { rotation: 540, x: 65, y: 15, scale: 1.3 },
-        clasp: { rotation: -180, x: -55, y: -15, scale: 1.2 },
-        moltbook: { rotation: 360, x: 60, y: 20, scale: 1.35 },
-        ducke: { rotation: -360, x: -50, y: -25, scale: 1.3 },
-        ccdash: { rotation: 270, x: 55, y: 20, scale: 1.25 },
-        mana: { rotation: -540, x: -65, y: -30, scale: 1.3 },
-        ringmaster: { rotation: 720, x: 70, y: 25, scale: 1.4 }
-    };
+    if (!position) return;
 
-    const transform = transforms[projectName] || { rotation: 180, x: 50, y: 0, scale: 1.2 };
-
-    // Logo transforms when entering project section (extended range)
+    // Animate logo to project-specific position
     ScrollTrigger.create({
         trigger: card,
         start: 'top 70%',
         end: 'bottom 30%',
         onEnter: () => {
-            gsap.to(logo, {
-                rotation: transform.rotation,
-                x: transform.x,
-                y: transform.y,
-                scale: transform.scale,
-                duration: 1.2,
-                ease: 'power2.out'
-            });
-        },
-        onLeave: () => {
-            gsap.to(logo, {
-                rotation: 0,
-                x: 0,
-                y: 0,
-                scale: 1,
-                duration: 1.2,
-                ease: 'power2.out'
-            });
-        },
-        onEnterBack: () => {
-            gsap.to(logo, {
-                rotation: transform.rotation,
-                x: transform.x,
-                y: transform.y,
-                scale: transform.scale,
-                duration: 1.2,
-                ease: 'power2.out'
+            gsap.to(logoContainer, {
+                top: position.top,
+                left: position.left,
+                x: position.x,
+                rotation: position.rotation,
+                scale: position.scale,
+                duration: 1.5,
+                ease: 'power2.inOut'
             });
         },
         onLeaveBack: () => {
-            gsap.to(logo, {
-                rotation: 0,
-                x: 0,
-                y: 0,
-                scale: 1,
-                duration: 1.2,
-                ease: 'power2.out'
-            });
+            // Return to previous position
+            const prevIndex = index - 1;
+            if (prevIndex >= 0) {
+                const prevCard = projectCards[prevIndex];
+                const prevName = prevCard.getAttribute('data-project');
+                const prevPosition = projectPositions[prevName];
+                if (prevPosition) {
+                    gsap.to(logoContainer, {
+                        top: prevPosition.top,
+                        left: prevPosition.left,
+                        x: prevPosition.x,
+                        rotation: prevPosition.rotation,
+                        scale: prevPosition.scale,
+                        duration: 1.5,
+                        ease: 'power2.inOut'
+                    });
+                }
+            } else {
+                // Return to hero position
+                gsap.to(logoContainer, {
+                    top: '40px',
+                    left: '50%',
+                    x: '-50%',
+                    rotation: 0,
+                    scale: 1,
+                    duration: 1.5,
+                    ease: 'power2.inOut'
+                });
+            }
         }
     });
 
-    // Continuous rotation and movement through the long scroll section
-    ScrollTrigger.create({
-        trigger: card,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 2,
-        onUpdate: (self) => {
-            // Gentle continuous rotation as you scroll through the project
-            const progress = self.progress;
-            const continuousRotation = progress * 720; // Two full rotations
-            const wave = Math.sin(progress * Math.PI * 4) * 30; // Sine wave movement
+    // Smooth transition between projects
+    const nextCard = projectCards[index + 1];
+    if (nextCard) {
+        const nextName = nextCard.getAttribute('data-project');
+        const nextPosition = projectPositions[nextName];
 
-            gsap.to(logo, {
-                rotation: continuousRotation,
-                x: wave,
-                duration: 0.3,
-                ease: 'none'
+        if (nextPosition) {
+            ScrollTrigger.create({
+                trigger: card,
+                start: 'bottom 50%',
+                end: 'bottom top',
+                scrub: 2,
+                onUpdate: (self) => {
+                    // Interpolate between current and next position
+                    const progress = self.progress;
+
+                    // Parse position values for interpolation
+                    const currentTop = parseFloat(position.top);
+                    const nextTop = parseFloat(nextPosition.top);
+                    const currentLeft = parseFloat(position.left);
+                    const nextLeft = parseFloat(nextPosition.left);
+
+                    const interpolatedTop = gsap.utils.interpolate(currentTop, nextTop, progress);
+                    const interpolatedLeft = gsap.utils.interpolate(currentLeft, nextLeft, progress);
+                    const interpolatedRotation = gsap.utils.interpolate(position.rotation, nextPosition.rotation, progress);
+                    const interpolatedScale = gsap.utils.interpolate(position.scale, nextPosition.scale, progress);
+
+                    gsap.to(logoContainer, {
+                        top: `${interpolatedTop}${position.top.includes('vh') ? 'vh' : 'px'}`,
+                        left: `${interpolatedLeft}${position.left.includes('vw') ? 'vw' : '%'}`,
+                        rotation: interpolatedRotation,
+                        scale: interpolatedScale,
+                        duration: 0.2,
+                        ease: 'none'
+                    });
+                }
             });
         }
-    });
-
-    // Pulse effect when in view
-    ScrollTrigger.create({
-        trigger: card,
-        start: 'top 50%',
-        end: 'bottom 50%',
-        onUpdate: (self) => {
-            const progress = self.progress;
-            const pulse = 1 + (Math.sin(progress * Math.PI) * 0.15);
-            gsap.to(logoContainer, {
-                scale: pulse * 0.7,
-                duration: 0.4,
-                ease: 'power1.out'
-            });
-        }
-    });
+    }
 });
 
-// Logo color glow effect based on scroll
+// Logo glow effect in projects section
 ScrollTrigger.create({
     trigger: '.projects',
     start: 'top center',
     end: 'bottom center',
     onEnter: () => {
         gsap.to(logo, {
-            boxShadow: '0 0 40px rgba(231, 76, 60, 0.5)',
+            boxShadow: '0 0 40px rgba(139, 26, 26, 0.4)',
             duration: 1,
             ease: 'power2.out'
         });
     },
     onLeaveBack: () => {
         gsap.to(logo, {
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+            boxShadow: '0 4px 20px rgba(139, 26, 26, 0.15)',
             duration: 1,
             ease: 'power2.out'
         });
@@ -196,34 +210,30 @@ if (scrollIndicator) {
     });
 }
 
-// Subtle mouse parallax on logo (less pronounced, more Apple-like)
-let mouseX = 0;
-let mouseY = 0;
+// Subtle mouse parallax effect (minimal, Apple-like)
+let targetX = 0;
+let targetY = 0;
+let currentX = 0;
+let currentY = 0;
 
 document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX - window.innerWidth / 2) * 0.005;
-    mouseY = (e.clientY - window.innerHeight / 2) * 0.005;
+    targetX = (e.clientX - window.innerWidth / 2) * 0.003;
+    targetY = (e.clientY - window.innerHeight / 2) * 0.003;
+});
+
+// Smooth parallax animation loop
+function updateParallax() {
+    currentX += (targetX - currentX) * 0.1;
+    currentY += (targetY - currentY) * 0.1;
 
     gsap.to(logo, {
-        x: `+=${mouseX}`,
-        y: `+=${mouseY}`,
-        duration: 0.6,
+        x: `+=${currentX}`,
+        y: `+=${currentY}`,
+        duration: 0.3,
         ease: 'power2.out'
     });
-});
 
-// Smooth logo bounce on scroll stop
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
+    requestAnimationFrame(updateParallax);
+}
 
-    scrollTimeout = setTimeout(() => {
-        gsap.to(logoContainer, {
-            y: -8,
-            duration: 0.25,
-            yoyo: true,
-            repeat: 1,
-            ease: 'power1.inOut'
-        });
-    }, 100);
-});
+updateParallax();

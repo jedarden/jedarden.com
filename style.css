@@ -5,9 +5,10 @@
 }
 
 :root {
-    --primary: #E74C3C;        /* Coral red */
-    --secondary: #E67E22;      /* Warm orange */
-    --accent: #F39C12;         /* Golden orange */
+    --primary: #8B1A1A;        /* Deep burgundy red - dark winter */
+    --secondary: #A52A2A;      /* Rich brown-red */
+    --accent: #6B1F1F;         /* Dark wine */
+    --accent-warm: #B8534E;    /* Muted terracotta */
     --dark: #1D1D1F;           /* Apple-style dark */
     --light: #FBFBFD;          /* Apple-style light */
     --text: #1D1D1F;           /* Dark text */
@@ -38,7 +39,8 @@ body {
     z-index: 1000;
     width: 100px;
     height: 100px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: none; /* Controlled by GSAP */
+    will-change: transform, top, left;
 }
 
 .floating-logo img {
@@ -46,7 +48,7 @@ body {
     height: 100%;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(139, 26, 26, 0.15);
     object-fit: cover;
 }
 
