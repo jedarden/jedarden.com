@@ -34,8 +34,8 @@
         <h2 class="section-title">Featured Projects</h2>
 
         <!-- FORGE -->
-        <div class="project-card" data-project="forge">
-            <div class="project-header">
+        <div class="project-showcase" data-project="forge">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <rect x="40" y="60" width="120" height="100" rx="8" fill="#8B1A1A" opacity="0.9"/>
                     <rect x="60" y="80" width="30" height="30" rx="4" fill="white"/>
@@ -45,13 +45,13 @@
                     <circle cx="150" cy="50" r="15" fill="#B8534E"/>
                     <path d="M145 45 L155 50 L145 55" stroke="white" stroke-width="3" fill="none"/>
                 </svg>
-                <div class="project-title-group">
-                    <h3>FORGE</h3>
-                    <p class="project-tagline">Federated Orchestration & Resource Generation Engine</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>FORGE</h3>
+                        <p class="project-tagline">Federated Orchestration & Resource Generation Engine</p>
+                        <div class="project-description">
                     <p>
                         FORGE represents a paradigm shift in AI-powered development workflows. As an intelligent
                         control panel for autonomous coding agents, it provides a unified interface for managing
@@ -71,21 +71,23 @@
                         tasks to complex, multi-agent projects involving dozens of specialized AI workers.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">AI Orchestration</span>
                     <span class="tech-tag">Distributed Systems</span>
                     <span class="tech-tag">Task Management</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://github.com/jedarden/forge" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Sun Simulator -->
-        <div class="project-card" data-project="sunsim">
-            <div class="project-header">
+        <div class="project-showcase" data-project="sunsim">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="100" cy="100" r="30" fill="#B8534E"/>
                 <line x1="100" y1="40" x2="100" y2="60" stroke="#A52A2A" stroke-width="4" stroke-linecap="round"/>
@@ -99,13 +101,13 @@
                 <circle cx="100" cy="160" r="5" fill="#8B1A1A"/>
                 <path d="M60 160 Q100 140 140 160" stroke="#1D1D1F" stroke-width="2" fill="none" opacity="0.3"/>
             </svg>
-                <div class="project-title-group">
-                    <h3>Sun Simulator</h3>
-                    <p class="project-tagline">Interactive Sun Position Visualization</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>Sun Simulator</h3>
+                        <p class="project-tagline">Interactive Sun Position Visualization</p>
+                        <div class="project-description">
                     <p>
                         The Sun Simulator is a sophisticated web application that visualizes solar position throughout
                         the day and across seasons with stunning accuracy. It combines astronomical calculations with
@@ -127,22 +129,24 @@
                         the beautiful celestial mechanics that govern our daily experience of sunlight.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">JavaScript</span>
                     <span class="tech-tag">Canvas</span>
                     <span class="tech-tag">Astronomy</span>
                     <span class="tech-tag">Geolocation</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://sunsim.jedarden.com" target="_blank" class="btn-project">View Demo →</a>
                     <a href="https://github.com/jedarden/sun-sim" target="_blank" class="btn-project-secondary">GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Face Detection -->
-        <div class="project-card" data-project="face">
-            <div class="project-header">
+        <div class="project-showcase" data-project="face">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="100" cy="100" r="60" fill="none" stroke="#8B1A1A" stroke-width="3"/>
                 <circle cx="80" cy="85" r="8" fill="#A52A2A"/>
@@ -155,13 +159,13 @@
                 <circle cx="50" cy="100" r="3" fill="#A52A2A"/>
                 <circle cx="150" cy="100" r="3" fill="#A52A2A"/>
             </svg>
-                <div class="project-title-group">
-                    <h3>Face Detection</h3>
-                    <p class="project-tagline">Real-Time Face Recognition System</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>Face Detection</h3>
+                        <p class="project-tagline">Real-Time Face Recognition System</p>
+                        <div class="project-description">
                     <p>
                         This comprehensive face detection system delivers production-ready real-time facial recognition
                         using face-api.js and TensorFlow.js. It runs entirely in the browser, providing instant face
@@ -184,22 +188,24 @@
                         detection capabilities with privacy-conscious local processing.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">TensorFlow.js</span>
                     <span class="tech-tag">face-api.js</span>
                     <span class="tech-tag">WebGL</span>
                     <span class="tech-tag">Docker</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://face.jedarden.com" target="_blank" class="btn-project">View Demo →</a>
                     <a href="https://github.com/jedarden/face-detection" target="_blank" class="btn-project-secondary">GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Gait Analysis -->
-        <div class="project-card" data-project="gait">
-            <div class="project-header">
+        <div class="project-showcase" data-project="gait">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="100" cy="40" r="15" fill="#A52A2A"/>
                 <rect x="95" y="55" width="10" height="40" rx="5" fill="#8B1A1A"/>
@@ -215,13 +221,13 @@
                 <circle cx="96" cy="95" r="3" fill="#B8534E"/>
                 <circle cx="110" cy="95" r="3" fill="#B8534E"/>
             </svg>
-                <div class="project-title-group">
-                    <h3>Gait Analysis</h3>
-                    <p class="project-tagline">Real-Time Human Pose & Motion Tracking</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>Gait Analysis</h3>
+                        <p class="project-tagline">Real-Time Human Pose & Motion Tracking</p>
+                        <div class="project-description">
                     <p>
                         This advanced pose detection system leverages TensorFlow.js to perform real-time human pose
                         estimation and gait analysis directly in the browser. It tracks 17 key body points including
@@ -245,22 +251,25 @@
                         motion capture equipment.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">TensorFlow.js</span>
                     <span class="tech-tag">PoseNet</span>
                     <span class="tech-tag">Computer Vision</span>
                     <span class="tech-tag">WebGL</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://gait.jedarden.com" target="_blank" class="btn-project">View Demo →</a>
                     <a href="https://github.com/jedarden/pose-detection" target="_blank" class="btn-project-secondary">GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Options Trading -->
-        <div class="project-card" data-project="options">
-            <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <div class="project-showcase" data-project="options">
+            <div class="sticky-icon-container">
+                <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path d="M30 150 L50 120 L70 130 L90 90 L110 100 L130 60 L150 70 L170 40"
                       stroke="#8B1A1A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M30 150 L50 140 L70 145 L90 130 L110 135 L130 120 L150 125 L170 110"
@@ -270,10 +279,13 @@
                 <rect x="28" y="30" width="2" height="127" fill="#1D1D1F" opacity="0.3"/>
                 <text x="140" y="50" font-family="monospace" font-size="14" fill="#8B1A1A" font-weight="bold">↑</text>
             </svg>
-            <div class="project-content">
-                <h3>Options Trading</h3>
-                <p class="project-tagline">Real-Time Options Analytics Platform</p>
-                <div class="project-description">
+            </div>
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>Options Trading</h3>
+                        <p class="project-tagline">Real-Time Options Analytics Platform</p>
+                        <div class="project-description">
                     <p>
                         A sophisticated options trading analytics platform that provides real-time market data analysis,
                         volatility surface visualization, and advanced options pricing models. The system aggregates
@@ -296,21 +308,24 @@
                         trading decisions.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">React</span>
                     <span class="tech-tag">WebSockets</span>
                     <span class="tech-tag">Financial Models</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://options.jedarden.com" target="_blank" class="btn-project">View Demo →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- News Trading -->
-        <div class="project-card" data-project="newstrading">
-            <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <div class="project-showcase" data-project="newstrading">
+            <div class="sticky-icon-container">
+                <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <rect x="40" y="50" width="120" height="100" rx="4" fill="none" stroke="#8B1A1A" stroke-width="3"/>
                 <rect x="50" y="65" width="50" height="3" fill="#A52A2A"/>
                 <rect x="50" y="75" width="40" height="3" fill="#1D1D1F" opacity="0.3"/>
@@ -323,10 +338,13 @@
                 <circle cx="165" cy="45" r="8" fill="#B8534E"/>
                 <text x="161" y="50" font-family="monospace" font-size="12" fill="white" font-weight="bold">!</text>
             </svg>
-            <div class="project-content">
-                <h3>News Trading</h3>
-                <p class="project-tagline">AI-Powered News Sentiment Trading</p>
-                <div class="project-description">
+            </div>
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>News Trading</h3>
+                        <p class="project-tagline">AI-Powered News Sentiment Trading</p>
+                        <div class="project-description">
                     <p>
                         An automated trading system that leverages natural language processing to analyze breaking news,
                         social media sentiment, and financial reports in real-time, executing trades based on market-moving
@@ -349,21 +367,23 @@
                         enabling traders to monitor algorithmic decisions and override when necessary.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">NLP</span>
                     <span class="tech-tag">Transformers</span>
                     <span class="tech-tag">Trading Algorithms</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://news-trading.jedarden.com" target="_blank" class="btn-project">View Demo →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Asteroid -->
-        <div class="project-card" data-project="asteroid">
-            <div class="project-header">
+        <div class="project-showcase" data-project="asteroid">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <polygon points="100,30 130,70 160,65 140,100 165,135 125,130 100,170 75,130 35,135 60,100 40,65 70,70"
                          fill="#86868B" stroke="#1D1D1F" stroke-width="2"/>
@@ -376,13 +396,13 @@
                 <circle cx="150" cy="40" r="2" fill="white" opacity="0.6"/>
                 <circle cx="160" cy="150" r="2.5" fill="white" opacity="0.6"/>
             </svg>
-                <div class="project-title-group">
-                    <h3>Asteroid</h3>
-                    <p class="project-tagline">Physics-Based Space Simulation</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>Asteroid</h3>
+                        <p class="project-tagline">Physics-Based Space Simulation</p>
+                        <div class="project-description">
                     <p>
                         An immersive browser-based space simulation that combines classic arcade gameplay with realistic
                         orbital mechanics. Players navigate through procedurally generated asteroid fields, managing
@@ -405,21 +425,24 @@
                         in space—no atmosphere, no friction, just pure Newtonian mechanics.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">JavaScript</span>
                     <span class="tech-tag">Canvas</span>
                     <span class="tech-tag">Physics Engine</span>
                     <span class="tech-tag">Game Development</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://asteroid.jedarden.com" target="_blank" class="btn-project">Play Demo →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- CLASP -->
-        <div class="project-card" data-project="clasp">
-            <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <div class="project-showcase" data-project="clasp">
+            <div class="sticky-icon-container">
+                <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <rect x="30" y="80" width="60" height="40" rx="6" fill="#8B1A1A"/>
                 <rect x="110" y="80" width="60" height="40" rx="6" fill="#A52A2A"/>
                 <path d="M90 100 L110 100" stroke="#B8534E" stroke-width="6" stroke-linecap="round"/>
@@ -428,10 +451,13 @@
                 <text x="50" y="105" font-family="monospace" font-size="16" fill="white" font-weight="bold">AI</text>
                 <text x="127" y="105" font-family="monospace" font-size="16" fill="white" font-weight="bold">LLM</text>
             </svg>
-            <div class="project-content">
-                <h3>CLASP</h3>
-                <p class="project-tagline">Claude Language Agent Super Proxy</p>
-                <div class="project-description">
+            </div>
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>CLASP</h3>
+                        <p class="project-tagline">Claude Language Agent Super Proxy</p>
+                        <div class="project-description">
                     <p>
                         CLASP breaks down the walls between AI coding platforms by acting as a universal translation
                         layer that enables Claude Code workflows to run seamlessly with any LLM provider. It's the
@@ -452,21 +478,23 @@
                         rewriting their entire workflow infrastructure.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">LLM Proxy</span>
                     <span class="tech-tag">Multi-Provider</span>
                     <span class="tech-tag">API Gateway</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://github.com/jedarden/CLASP" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Moltbook -->
-        <div class="project-card" data-project="moltbook">
-            <div class="project-header">
+        <div class="project-showcase" data-project="moltbook">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <rect x="50" y="40" width="100" height="120" rx="4" fill="#8B1A1A"/>
                 <rect x="60" y="50" width="80" height="100" rx="2" fill="white"/>
@@ -478,13 +506,13 @@
                 <rect x="82" y="96" width="48" height="3" rx="1.5" fill="#1D1D1F" opacity="0.2"/>
                 <rect x="82" y="103" width="36" height="3" rx="1.5" fill="#1D1D1F" opacity="0.2"/>
             </svg>
-                <div class="project-title-group">
-                    <h3>Moltbook</h3>
-                    <p class="project-tagline">The Social Network for AI Agents</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>Moltbook</h3>
+                        <p class="project-tagline">The Social Network for AI Agents</p>
+                        <div class="project-description">
                     <p>
                         Moltbook pioneers the future of AI collaboration by creating the first true social network
                         designed for artificial intelligence agents. It's a platform where AI agents can share
@@ -508,75 +536,26 @@
                         collectively advance the field of artificial intelligence.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Next.js 14</span>
                     <span class="tech-tag">TypeScript</span>
                     <span class="tech-tag">Tailwind CSS</span>
                     <span class="tech-tag">Real-time</span>
                     <span class="tech-tag">WebSockets</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://github.com/jedarden/moltbook-frontend" target="_blank" class="btn-project">Frontend →</a>
                     <a href="https://github.com/jedarden/api" target="_blank" class="btn-project-secondary">API →</a>
                 </div>
-            </div>
-        </div>
-
-        <!-- DUCK-E -->
-        <div class="project-card" data-project="ducke">
-            <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="100" cy="120" rx="50" ry="45" fill="#B8534E"/>
-                <circle cx="100" cy="70" r="35" fill="#B8534E"/>
-                <ellipse cx="90" cy="65" rx="8" ry="10" fill="#1D1D1F"/>
-                <ellipse cx="110" cy="65" rx="8" ry="10" fill="#1D1D1F"/>
-                <path d="M85 80 Q100 90 115 80" stroke="#8B1A1A" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <ellipse cx="70" cy="130" rx="8" ry="12" fill="#A52A2A"/>
-                <ellipse cx="130" cy="130" rx="8" ry="12" fill="#A52A2A"/>
-                <path d="M50 100 Q30 100 35 90 Q40 85 50 90" fill="#8B1A1A"/>
-                <path d="M150 100 Q170 100 165 90 Q160 85 150 90" fill="#8B1A1A"/>
-            </svg>
-            <div class="project-content">
-                <h3>DUCK-E 🦆</h3>
-                <p class="project-tagline">The Duck That Talks Back</p>
-                <div class="project-description">
-                    <p>
-                        DUCK-E revolutionizes the venerable practice of rubber duck debugging by transforming it
-                        from a one-way monologue into an intelligent, interactive conversation. Using OpenAI's
-                        groundbreaking Realtime API, DUCK-E doesn't just listen—it asks probing questions, suggests
-                        alternative approaches, and actively helps you think through complex problems in real-time.
-                    </p>
-                    <p>
-                        The system leverages the AutoGen framework to implement sophisticated multi-agent
-                        conversations, where specialized debugging agents collaborate to understand your code,
-                        identify potential issues, and suggest solutions. DUCK-E can analyze stack traces, review
-                        code snippets you share verbally, and even simulate different scenarios to help you understand
-                        edge cases and race conditions.
-                    </p>
-                    <p>
-                        Built with FastAPI for lightning-fast response times, DUCK-E processes your voice in real-time,
-                        maintains context throughout long debugging sessions, and adapts its questioning style based
-                        on your expertise level and the problem domain. The system integrates with popular IDEs,
-                        can access documentation on the fly, and provides both conversational guidance and structured
-                        debugging protocols. It's like pair programming with an infinitely patient expert who's
-                        available 24/7 and never judges your bugs.
-                    </p>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">OpenAI Realtime</span>
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">AutoGen</span>
-                    <span class="tech-tag">Voice AI</span>
-                    <span class="tech-tag">Real-time Processing</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/jedarden/duck-e" target="_blank" class="btn-project">View on GitHub →</a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- CCDash -->
-        <div class="project-card" data-project="ccdash">
-            <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <div class="project-showcase" data-project="ccdash">
+            <div class="sticky-icon-container">
+                <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <rect x="30" y="50" width="140" height="100" rx="4" fill="#1D1D1F"/>
                 <rect x="40" y="60" width="120" height="80" fill="#0A0A0A"/>
                 <text x="50" y="80" font-family="monospace" font-size="12" fill="#8B1A1A">$ system stats</text>
@@ -586,10 +565,13 @@
                 <text x="50" y="115" font-family="monospace" font-size="10" fill="#86868B">CPU: 45%</text>
                 <text x="50" y="128" font-family="monospace" font-size="10" fill="#86868B">MEM: 8.2GB</text>
             </svg>
-            <div class="project-content">
-                <h3>CCDash</h3>
-                <p class="project-tagline">Lightweight TUI Dashboard</p>
-                <div class="project-description">
+            </div>
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>CCDash</h3>
+                        <p class="project-tagline">Lightweight TUI Dashboard</p>
+                        <div class="project-description">
                     <p>
                         CCDash brings the elegance of modern web dashboards to the terminal, creating a beautiful,
                         efficient monitoring solution for developers who live and breathe the command line. It
@@ -611,21 +593,23 @@
                         you need without leaving your terminal comfort zone.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">TUI</span>
                     <span class="tech-tag">Monitoring</span>
                     <span class="tech-tag">Rich Library</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://github.com/jedarden/ccdash" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- MANA -->
-        <div class="project-card" data-project="mana">
-            <div class="project-header">
+        <div class="project-showcase" data-project="mana">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="100" cy="100" r="45" fill="none" stroke="#8B1A1A" stroke-width="3"/>
                 <circle cx="70" cy="80" r="12" fill="#A52A2A"/>
@@ -638,13 +622,13 @@
                 <line x1="100" y1="100" x2="70" y2="120" stroke="#8B1A1A" stroke-width="2"/>
                 <line x1="100" y1="100" x2="130" y2="120" stroke="#8B1A1A" stroke-width="2"/>
             </svg>
-                <div class="project-title-group">
-                    <h3>MANA</h3>
-                    <p class="project-tagline">Memory-Augmented Neural Assistant</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>MANA</h3>
+                        <p class="project-tagline">Memory-Augmented Neural Assistant</p>
+                        <div class="project-description">
                     <p>
                         MANA represents the cutting edge of context management for AI coding agents, implementing
                         an adaptive learning system that intelligently manages and retrieves contextual information
@@ -667,21 +651,23 @@
                         and forget everything that doesn't.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">RAG</span>
                     <span class="tech-tag">Vector DB</span>
                     <span class="tech-tag">Context Management</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://github.com/jedarden/MANA" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Ringmaster -->
-        <div class="project-card" data-project="ringmaster">
-            <div class="project-header">
+        <div class="project-showcase" data-project="ringmaster">
+            <div class="sticky-icon-container">
                 <svg class="project-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="100" cy="100" r="60" fill="none" stroke="#8B1A1A" stroke-width="4"/>
                 <circle cx="100" cy="100" r="40" fill="none" stroke="#A52A2A" stroke-width="3"/>
@@ -690,13 +676,13 @@
                 <rect x="30" y="95" width="140" height="10" fill="#A52A2A"/>
                 <circle cx="100" cy="100" r="8" fill="#1D1D1F"/>
             </svg>
-                <div class="project-title-group">
-                    <h3>Ringmaster</h3>
-                    <p class="project-tagline">SDLC Orchestration Platform</p>
-                </div>
             </div>
-            <div class="project-content">
-                <div class="project-description">
+            <div class="project-content-scroll">
+                <div class="content-section">
+                    <div class="content-wrapper">
+                        <h3>Ringmaster</h3>
+                        <p class="project-tagline">SDLC Orchestration Platform</p>
+                        <div class="project-description">
                     <p>
                         Ringmaster orchestrates the complete software development lifecycle for AI-powered teams,
                         managing workflows from initial planning through deployment and beyond. It's the conductor
@@ -721,17 +707,20 @@
                         platform designed specifically for the age of AI-powered development.
                     </p>
                 </div>
-                <div class="tech-stack">
+                        <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">DevOps</span>
                     <span class="tech-tag">Orchestration</span>
                     <span class="tech-tag">CI/CD</span>
                 </div>
-                <div class="project-links">
+                        <div class="project-links">
                     <a href="https://github.com/jedarden/ringmaster" target="_blank" class="btn-project">View on GitHub →</a>
+                </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- Footer -->

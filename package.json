@@ -1,0 +1,11 @@
+{
+  "name": "jedarden.com",
+  "version": "1.0.0",
+  "description": "Personal portfolio website with scroll animations",
+  "scripts": {
+    "test:positioning": "node test-positioning.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.40.0"
+  }
+}

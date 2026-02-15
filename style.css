@@ -39,7 +39,7 @@ body {
     z-index: 1000;
     width: 100px;
     height: 100px;
-    transition: none; /* Controlled by GSAP */
+    transition: none;
     will-change: transform, top, left;
 }
 
@@ -166,76 +166,94 @@ body {
 
 /* Projects Section */
 .projects {
-    background: var(--light);
-    padding: 150px 20px 200px;
-    max-width: 100%;
-    margin: 0 auto;
+    background: var(--cream);
+    padding: 100px 0;
 }
 
 .section-title {
     text-align: center;
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     color: var(--dark);
     letter-spacing: -2px;
 }
 
-/* Project Cards */
-.project-card {
-    max-width: 1100px;
-    margin: 0 auto 200vh;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:last-of-type {
-    margin-bottom: 100px;
-}
-
-.project-header {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.project-icon {
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-}
-
-.project-title-group {
-    flex: 1;
-}
-
-.project-content h3 {
-    font-size: 3.5rem;
-    color: var(--dark);
-    margin-bottom: 8px;
-    font-weight: 700;
-    letter-spacing: -2px;
-}
-
-.project-tagline {
-    font-size: 1.5rem;
-    color: var(--text-light);
-    font-weight: 400;
+/* Project Showcase - Apple Style */
+.project-showcase {
+    min-height: 400vh;
+    position: relative;
     margin-bottom: 0;
 }
 
-.project-description {
-    font-size: 1.25rem;
+.project-showcase:last-of-type {
+    min-height: 300vh;
+}
+
+/* Sticky Icon Container */
+.sticky-icon-container {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.project-icon {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* Scrolling Content */
+.project-content-scroll {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.content-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+}
+
+.content-wrapper {
+    max-width: 700px;
+    width: 100%;
+}
+
+.content-section h3 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--dark);
+    letter-spacing: -2.5px;
+}
+
+.project-tagline {
+    font-size: 1.75rem;
     color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 35px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.project-description {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 40px;
 }
 
 .project-description p {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 /* Tech Stack */
@@ -244,7 +262,6 @@ body {
     gap: 12px;
     flex-wrap: wrap;
     margin-bottom: 40px;
-    justify-content: center;
 }
 
 .tech-tag {
@@ -261,7 +278,6 @@ body {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .btn-project, .btn-project-secondary {
@@ -280,7 +296,7 @@ body {
 
 .btn-project:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 8px 24px rgba(139, 26, 26, 0.3);
 }
 
 .btn-project-secondary {
@@ -360,18 +376,12 @@ body {
         font-size: 1.1rem;
     }
 
-    .project-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
     .project-icon {
-        width: 80px;
-        height: 80px;
+        width: 150px;
+        height: 150px;
     }
 
-    .project-content h3 {
+    .content-section h3 {
         font-size: 2.5rem;
     }
 
@@ -379,7 +389,11 @@ body {
         font-size: 2.5rem;
     }
 
-    .project-card {
-        margin-bottom: 150vh;
+    .content-section {
+        padding: 60px 20px;
+    }
+
+    .project-showcase {
+        min-height: 350vh;
     }
 }
