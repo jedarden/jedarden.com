@@ -1,68 +1,101 @@
-# jedarden.com
+# Jed Arden - Portfolio Website
 
-Personal portfolio website featuring scroll-based animations and project showcases.
+Personal portfolio website built with React, GSAP, and Agentation for visual feedback.
 
-## Features
+## ✨ Features
 
-- **Scroll-Triggered Animations**: Logo transforms (rotates, scales, translates) as you scroll through projects
-- **GSAP ScrollTrigger**: Smooth, performant scroll animations
-- **Responsive Design**: Works beautifully on mobile and desktop
-- **Project Showcase**: Featured projects from jedarden and ardenone GitHub organizations
-- **Interactive Logo**: Responds to scroll position and mouse movement
+- **React 19 + Vite** - Modern, fast development experience
+- **GSAP ScrollTrigger** - Smooth scroll-based animations with Apple-inspired on-ramp/pin/off-ramp pattern
+- **Agentation Widget** - Visual feedback tool for AI coding agents
+- **Responsive Design** - Works on desktop and mobile
+- **Dark Winter Theme** - Warm reds complementing the logo
 
-## Technologies
-
-- HTML5
-- CSS3 (Custom Properties, Flexbox, Grid)
-- JavaScript (ES6+)
-- GSAP 3.12+ with ScrollTrigger plugin
-
-## Projects Featured
-
-- **FORGE** - Intelligent control panel for AI coding agents
-- **Beads** - Memory upgrade for coding agents
-- **CLASP** - Claude Language Agent Super Proxy
-- **Moltbook** - Social network for AI agents
-- **DUCK-E** - AI-powered voice debugging assistant
-- **CCDash** - TUI monitoring dashboard
-- **Kalshi Tail Trader** - Ultra-low latency trading system
-- **MANA** - Memory-Augmented Neural Assistant
-- **Ringmaster** - SDLC orchestration platform
-
-## Local Development
-
-Simply open `index.html` in a modern browser. The GSAP library is loaded from CDN.
-
-## Deployment
-
-Deploy to any static hosting service:
-- **GitHub Pages**: Enable in repo settings
-- **Cloudflare Pages**: Connect repo and deploy
-- **Netlify**: Drag and drop or connect repo
-- **Vercel**: Import from GitHub
-
-### GitHub Pages Deployment
+## 🚀 Development
 
 ```bash
-# Enable GitHub Pages in repository settings
-# Set source to main branch / root directory
-# Site will be available at https://jedarden.github.io/jedarden.com
+cd portfolio-react
+npm install
+npm run dev
 ```
 
-## Performance
+Visit http://localhost:5173
 
-- Minimal dependencies (GSAP only)
-- Optimized animations using GPU acceleration
-- Lazy loading ready
-- ~200KB total size
+## 🏗️ Build
 
-## Browser Support
+```bash
+cd portfolio-react
+npm run build
+```
 
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers (iOS Safari, Chrome Mobile)
+Output goes to `portfolio-react/dist/`
 
-## License
+## 📦 Deploy to GitHub Pages
 
-Private - All rights reserved
+The site is automatically built and deployed from the `dist` folder:
+
+```bash
+cd portfolio-react
+npm run deploy
+```
+
+Or manually:
+```bash
+npm run build
+cd dist
+git init
+git add -A
+git commit -m 'Deploy'
+git push -f git@github.com:jedarden/jedarden.com.git main:gh-pages
+```
+
+## 🎨 Agentation Integration
+
+The portfolio uses [Agentation](https://agentation.dev) for visual feedback:
+
+1. **In the browser**: Click the Agentation toolbar to annotate elements
+2. **In Claude Code**: Annotations appear via MCP tools
+3. **Configure MCP**: Add agentation-mcp to Claude Code settings
+
+### MCP Setup
+
+```bash
+claude mcp add agentation -- npx agentation-mcp server
+```
+
+Or add to `~/.claude/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "agentation": {
+      "command": "npx",
+      "args": ["agentation-mcp", "server"]
+    }
+  }
+}
+```
+
+## 📁 Project Structure
+
+```
+jedarden.com/
+├── portfolio-react/          # React source code
+│   ├── src/
+│   │   ├── App.jsx          # Main component with Agentation
+│   │   ├── App.css          # Styles
+│   │   └── assets/          # Images and static files
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
+├── assets/                   # Built assets (from dist)
+├── index.html               # Built HTML (from dist)
+└── README.md
+```
+
+## 🌐 Live Site
+
+https://jedarden.github.io/jedarden.com/
+
+## 📄 License
+
+© 2026 Jed Arden

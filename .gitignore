@@ -2,3 +2,6 @@ node_modules/
 test-results.log
 .cache/
 package-lock.json
+portfolio-react/node_modules/
+portfolio-react/dist/
+old-html-site/
