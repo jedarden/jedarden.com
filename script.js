@@ -38,57 +38,64 @@ projectShowcases.forEach((showcase, index) => {
     const icon = showcase.querySelector('.project-icon');
     const projectName = showcase.getAttribute('data-project');
 
-    // On-ramp: Icon fades and scales in
-    ScrollTrigger.create({
-        trigger: showcase,
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: 1,
-        onUpdate: (self) => {
-            const progress = self.progress;
-            gsap.to(icon, {
-                opacity: progress,
-                scale: gsap.utils.interpolate(0.5, 1, progress),
-                rotation: gsap.utils.interpolate(-45, 0, progress),
-                duration: 0.1,
-                ease: 'power2.out'
-            });
+    // Set initial state
+    gsap.set(icon, {
+        opacity: 0,
+        scale: 0.5,
+        rotation: -45
+    });
+
+    // Create timeline for on-ramp animation
+    const onrampTL = gsap.timeline({
+        scrollTrigger: {
+            trigger: showcase,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: 1,
+            id: `onramp-${projectName}`
         }
     });
 
-    // Middle: Icon stays pinned (handled by CSS sticky)
-    // Content scrolls past the pinned icon
+    onrampTL.to(icon, {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        ease: 'power2.out'
+    });
 
-    // Off-ramp: Icon fades and scales out
-    ScrollTrigger.create({
-        trigger: showcase,
-        start: 'bottom 50%',
-        end: 'bottom top',
-        scrub: 1,
-        onUpdate: (self) => {
-            const progress = self.progress;
-            gsap.to(icon, {
-                opacity: gsap.utils.interpolate(1, 0, progress),
-                scale: gsap.utils.interpolate(1, 0.3, progress),
-                rotation: gsap.utils.interpolate(0, 45, progress),
-                duration: 0.1,
-                ease: 'power2.in'
-            });
+    // Create timeline for off-ramp animation
+    const offrampTL = gsap.timeline({
+        scrollTrigger: {
+            trigger: showcase,
+            start: 'bottom 50%',
+            end: 'bottom top',
+            scrub: 1,
+            id: `offramp-${projectName}`
         }
+    });
+
+    offrampTL.to(icon, {
+        opacity: 0,
+        scale: 0.3,
+        rotation: 45,
+        ease: 'power2.in'
     });
 
     // Parallax effect on content
     const content = showcase.querySelector('.project-content-scroll');
-    gsap.to(content, {
-        scrollTrigger: {
-            trigger: showcase,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1
-        },
-        y: -100,
-        ease: 'none'
-    });
+    if (content) {
+        gsap.to(content, {
+            scrollTrigger: {
+                trigger: showcase,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+                id: `parallax-${projectName}`
+            },
+            y: -100,
+            ease: 'none'
+        });
+    }
 });
 
 // Smooth scroll to projects on indicator click
@@ -102,3 +109,6 @@ if (scrollIndicator) {
         });
     });
 }
+
+// Debug: Log ScrollTrigger instances
+console.log(`Created ${ScrollTrigger.getAll().length} ScrollTriggers for ${projectShowcases.length} projects`);
