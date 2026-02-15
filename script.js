@@ -26,22 +26,22 @@ const logo = document.getElementById('logo');
 const logoContainer = document.querySelector('.floating-logo');
 
 // Define unique positions for each project (viewport-relative)
-// Format: { top: '20vh', left: '10vw', rotation: 45, scale: 1.2 }
+// Format: { top: '20vh', left: '10vw', rotation: 0, scale: 1.2 }
 const projectPositions = {
     hero: { top: '40px', left: '50%', x: '-50%', rotation: 0, scale: 1 },
-    forge: { top: '15vh', left: '85vw', x: '-50%', rotation: 45, scale: 1.3 },
-    sunsim: { top: '50vh', left: '10vw', x: '-50%', rotation: -30, scale: 1.2 },
-    face: { top: '20vh', left: '50%', x: '-50%', rotation: 90, scale: 1.4 },
-    gait: { top: '70vh', left: '80vw', x: '-50%', rotation: -60, scale: 1.15 },
-    options: { top: '30vh', left: '15vw', x: '-50%', rotation: 120, scale: 1.35 },
-    newstrading: { top: '60vh', left: '50%', x: '-50%', rotation: -90, scale: 1.25 },
-    asteroid: { top: '25vh', left: '75vw', x: '-50%', rotation: 180, scale: 1.3 },
-    clasp: { top: '55vh', left: '20vw', x: '-50%', rotation: -45, scale: 1.2 },
-    moltbook: { top: '35vh', left: '85vw', x: '-50%', rotation: 60, scale: 1.4 },
-    ducke: { top: '65vh', left: '15vw', x: '-50%', rotation: -120, scale: 1.35 },
-    ccdash: { top: '40vh', left: '75vw', x: '-50%', rotation: 30, scale: 1.25 },
-    mana: { top: '50vh', left: '50%', x: '-50%', rotation: -150, scale: 1.3 },
-    ringmaster: { top: '30vh', left: '25vw', x: '-50%', rotation: 90, scale: 1.2 }
+    forge: { top: '15vh', left: '85vw', x: '-50%', rotation: 0, scale: 1.3 },
+    sunsim: { top: '50vh', left: '10vw', x: '-50%', rotation: 0, scale: 1.2 },
+    face: { top: '20vh', left: '50%', x: '-50%', rotation: 0, scale: 1.4 },
+    gait: { top: '70vh', left: '80vw', x: '-50%', rotation: 0, scale: 1.15 },
+    options: { top: '30vh', left: '15vw', x: '-50%', rotation: 0, scale: 1.35 },
+    newstrading: { top: '60vh', left: '50%', x: '-50%', rotation: 0, scale: 1.25 },
+    asteroid: { top: '25vh', left: '75vw', x: '-50%', rotation: 0, scale: 1.3 },
+    clasp: { top: '55vh', left: '20vw', x: '-50%', rotation: 0, scale: 1.2 },
+    moltbook: { top: '35vh', left: '85vw', x: '-50%', rotation: 0, scale: 1.4 },
+    ducke: { top: '65vh', left: '15vw', x: '-50%', rotation: 0, scale: 1.35 },
+    ccdash: { top: '40vh', left: '75vw', x: '-50%', rotation: 0, scale: 1.25 },
+    mana: { top: '50vh', left: '50%', x: '-50%', rotation: 0, scale: 1.3 },
+    ringmaster: { top: '30vh', left: '25vw', x: '-50%', rotation: 0, scale: 1.2 }
 };
 
 // Initial position
