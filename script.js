@@ -82,12 +82,12 @@ function initLogoAnimations() {
             { opacity: 0, scale: 0.7, rotation: -45 },
             { opacity: 1, scale: 1, rotation: 0, immediateRender: false }, 0.3);
 
-        // Project exits viewport: visual and logo clone fade out with longer transition
+        // Project exits viewport: visual and logo clone fade out (delayed until content nearly done)
         gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
-                start: 'bottom 60%',
-                end: 'bottom 20%',
+                start: 'bottom 25%',
+                end: 'bottom 5%',
                 scrub: 1.5
             }
         })
