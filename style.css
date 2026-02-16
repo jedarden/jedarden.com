@@ -443,6 +443,8 @@ body {
 .project-icon-wrapper svg {
     width: 100%;
     height: 100%;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 .project-header h3,
