@@ -1089,3 +1089,167 @@
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
 }
+
+/* DUCK-E - Speech-to-Speech Debugging */
+.visual-ducke {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ducke-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.voice-input, .voice-output {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mic-icon, .speaker-icon {
+    font-size: 2rem;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+.mic-icon {
+    animation-delay: 0s;
+}
+
+.speaker-icon {
+    animation-delay: 1s;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.sound-waves {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 60px;
+}
+
+.wave {
+    width: 4px;
+    background: linear-gradient(to top, #8B1A1A, #E74C3C);
+    border-radius: 2px;
+    animation: waveMove 1s ease-in-out infinite;
+}
+
+.input-waves .wave-1 { height: 20px; animation-delay: 0s; }
+.input-waves .wave-2 { height: 40px; animation-delay: 0.15s; }
+.input-waves .wave-3 { height: 30px; animation-delay: 0.3s; }
+
+.output-waves .wave-1 { height: 30px; animation-delay: 0.5s; }
+.output-waves .wave-2 { height: 45px; animation-delay: 0.65s; }
+.output-waves .wave-3 { height: 25px; animation-delay: 0.8s; }
+
+@keyframes waveMove {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
+}
+
+.ducke-center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.duck-bubble {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #FFD93D, #F4B400);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(244, 180, 0, 0.4);
+    animation: duckBob 2s ease-in-out infinite;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.duck-icon {
+    font-size: 3.5rem;
+}
+
+@keyframes duckBob {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.thought-bubbles {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.thought {
+    position: absolute;
+    font-size: 1.2rem;
+    background: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    animation: thoughtFloat 3s ease-in-out infinite;
+}
+
+.thought-1 {
+    top: -10px;
+    left: 10px;
+    animation-delay: 0s;
+}
+
+.thought-2 {
+    top: 20px;
+    right: 0;
+    animation-delay: 1s;
+}
+
+.thought-3 {
+    bottom: 20px;
+    right: 15px;
+    animation-delay: 2s;
+}
+
+@keyframes thoughtFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+        opacity: 1;
+    }
+}
+
+.ducke-label {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #86868B;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
