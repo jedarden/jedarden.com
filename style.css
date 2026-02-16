@@ -423,6 +423,21 @@ body {
     text-align: center;
 }
 
+/* Project Icon in Visual Container */
+.project-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+}
+
 .visual-container h3 {
     font-size: 2.5rem;
     font-weight: 700;

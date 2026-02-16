@@ -24,6 +24,7 @@ function generateProjectsHTML() {
             <div class="desktop-layout">
                 <!-- Left: Fixed Visual Stack (Title, Animation, Links) -->
                 <div class="visual-container">
+                    ${project.icon ? `<div class="project-icon-wrapper">${project.icon}</div>` : ''}
                     <h3>${project.name}</h3>
                     <p class="project-tagline">${project.tagline}</p>
                     ${project.visual}
