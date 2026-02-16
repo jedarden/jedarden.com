@@ -52,6 +52,13 @@ function initLogoAnimations() {
     const projectsSection = document.querySelector('.projects');
     const projectShowcases = document.querySelectorAll('.project-showcase');
 
+    // Set initial state - upright and opaque at top
+    gsap.set(floatingLogo, {
+        opacity: 1,
+        rotation: 0,
+        scale: 1
+    });
+
     // Logo transitions from hero to projects
     gsap.timeline({
         scrollTrigger: {
