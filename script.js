@@ -52,11 +52,35 @@ function initLogoAnimations() {
     const projectsSection = document.querySelector('.projects');
     const projectShowcases = document.querySelectorAll('.project-showcase');
 
-    // Set initial state - upright and opaque at top
+    // Explicitly set initial hero state
     gsap.set(floatingLogo, {
         opacity: 1,
         rotation: 0,
-        scale: 1
+        scale: 1,
+        clearProps: 'all'  // Clear any previous GSAP properties
+    });
+
+    // Hero scroll trigger - keep logo in hero state
+    ScrollTrigger.create({
+        trigger: hero,
+        start: 'top top',
+        end: 'bottom 20%',
+        onEnter: () => {
+            gsap.to(floatingLogo, {
+                opacity: 1,
+                rotation: 0,
+                scale: 1,
+                duration: 0.3
+            });
+        },
+        onEnterBack: () => {
+            gsap.to(floatingLogo, {
+                opacity: 1,
+                rotation: 0,
+                scale: 1,
+                duration: 0.3
+            });
+        }
     });
 
     // Logo transitions from hero to projects
@@ -69,11 +93,7 @@ function initLogoAnimations() {
         }
     })
     .to(floatingLogo, {
-        scale: 0.6,
-        top: '50%',
-        left: '50%',
-        xPercent: -50,
-        yPercent: -50
+        scale: 0.6
     });
 
     projectShowcases.forEach((showcase, index) => {
