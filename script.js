@@ -115,9 +115,10 @@ function initNavScrollTracking(nav) {
     });
 
     // Show/hide nav based on first project showcase visibility
+    // Nav appears only when scrolled past the TOC into actual project content
     ScrollTrigger.create({
         trigger: '.project-showcase',
-        start: 'top 90%',
+        start: 'top 50%',
         end: 'bottom 20%',
         endTrigger: '.projects',
         onEnter: () => nav.classList.add('visible'),
