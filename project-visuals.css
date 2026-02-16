@@ -404,30 +404,63 @@
     50% { opacity: 1; transform: scale(1); }
 }
 
-/* Gait Analysis - Walking Figure */
+/* Gait Analysis - Body with Skeleton Overlay */
 .visual-gait {
     display: flex;
-    gap: 40px;
     align-items: center;
     justify-content: center;
 }
 
-.skeleton-figure {
-    width: 80px;
-    height: 160px;
+.gait-body-container {
     position: relative;
+    width: 160px;
+    height: 200px;
 }
 
-.gait-waving-arm {
-    transform-origin: 40px 50px;
-    animation: waveArm 1.5s ease-in-out infinite;
+.gait-body-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    filter: brightness(0.95);
 }
 
-@keyframes waveArm {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-30deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-30deg); }
+.skeleton-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.skeleton-overlay .bone {
+    stroke: #00ff00;
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.8));
+    animation: bonePulse 2s ease-in-out infinite;
+}
+
+.skeleton-overlay .joint {
+    fill: #ff3333;
+    filter: drop-shadow(0 0 4px rgba(255, 50, 50, 0.9));
+    animation: jointPulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-overlay .head-joint {
+    fill: #ffff00;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.9));
+}
+
+@keyframes bonePulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; }
+}
+
+@keyframes jointPulse {
+    0%, 100% { r: 4; }
+    50% { r: 5; }
 }
 
 .joint {
