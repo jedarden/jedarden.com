@@ -14,84 +14,123 @@
     overflow: hidden;
 }
 
-/* FORGE - Agent Orchestration Visualization with Data Pipes */
+/* FORGE - Multi-Platform Agent Orchestration */
 .visual-forge {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
-    height: 350px;
+    height: 450px;
 }
 
-.agent-node {
+/* Agent + Model Combinations */
+.agent-combo {
+    position: absolute;
     background: linear-gradient(135deg, #8B1A1A, #A52A2A);
     color: white;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
     text-align: center;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(139, 26, 26, 0.3);
-    position: relative;
+    font-size: 0.75rem;
+    box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
     z-index: 10;
-    width: 100px;
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: pulse 3s ease-in-out infinite;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+.agent-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.model-name {
+    font-size: 0.7rem;
+    opacity: 0.85;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Position agents in hexagonal formation around center */
 .agent-1 {
-    position: absolute;
-    top: 30px;
-    left: 50px;
-    animation: pulse 2s ease-in-out infinite;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     animation-delay: 0s;
 }
 
 .agent-2 {
-    position: absolute;
-    top: 30px;
-    right: 50px;
-    animation: pulse 2s ease-in-out infinite;
-    animation-delay: 0.3s;
+    top: 80px;
+    right: 40px;
+    animation-delay: 0.2s;
 }
 
 .agent-3 {
-    position: absolute;
-    bottom: 30px;
+    bottom: 80px;
+    right: 40px;
+    animation-delay: 0.4s;
+}
+
+.agent-4 {
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    animation: pulse 2s ease-in-out infinite;
     animation-delay: 0.6s;
 }
 
+.agent-5 {
+    bottom: 80px;
+    left: 40px;
+    animation-delay: 0.8s;
+}
+
+.agent-6 {
+    top: 80px;
+    left: 40px;
+    animation-delay: 1s;
+}
+
 @keyframes pulse {
-    0%, 100% { transform: scale(1) translateX(-50%); opacity: 0.9; }
-    50% { transform: scale(1.05) translateX(-50%); opacity: 1; }
+    0%, 100% { opacity: 0.85; box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4); }
+    50% { opacity: 1; box-shadow: 0 6px 25px rgba(139, 26, 26, 0.6); }
 }
 
-.agent-1, .agent-2 {
-    transform: none;
-}
-
-.agent-1:hover, .agent-2:hover, .agent-3:hover {
-    transform: scale(1.05);
-}
-
+/* FORGE Control Center */
 .control-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90px;
-    height: 90px;
-    background: linear-gradient(135deg, #B8534E, #A52A2A);
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #B8534E, #8B1A1A);
     border-radius: 50%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
-    font-weight: bold;
-    font-size: 0.8rem;
     z-index: 5;
-    box-shadow: 0 0 30px rgba(184, 83, 78, 0.5);
+    box-shadow: 0 0 40px rgba(184, 83, 78, 0.6);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.forge-label {
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.forge-subtitle {
+    font-size: 0.65rem;
+    opacity: 0.9;
+    margin-top: 4px;
+    text-align: center;
+    line-height: 1.2;
 }
 
 /* Interconnecting Pipes */
@@ -114,53 +153,49 @@
     overflow: hidden;
 }
 
-/* Pipe positions connecting agents to center */
+/* Pipe positions connecting agents to center (hexagonal) */
 .pipe-1 {
-    top: 80px;
-    left: 150px;
-    width: calc(50% - 150px);
-    height: 4px;
-    transform-origin: left center;
-}
-
-.pipe-2 {
-    top: 80px;
-    right: 150px;
-    width: calc(50% - 150px);
-    height: 4px;
-    transform-origin: right center;
-}
-
-.pipe-3 {
-    bottom: 80px;
+    top: 70px;
     left: 50%;
-    width: 4px;
-    height: calc(50% - 80px);
+    width: 3px;
+    height: calc(50% - 70px);
     transform: translateX(-50%);
 }
 
+.pipe-2 {
+    top: 140px;
+    right: 130px;
+    width: calc(50% - 130px);
+    height: 3px;
+}
+
+.pipe-3 {
+    bottom: 140px;
+    right: 130px;
+    width: calc(50% - 130px);
+    height: 3px;
+}
+
 .pipe-4 {
-    top: 50%;
-    left: 150px;
-    width: calc(50% - 150px);
-    height: 4px;
-    transform: translateY(-50%);
+    bottom: 70px;
+    left: 50%;
+    width: 3px;
+    height: calc(50% - 70px);
+    transform: translateX(-50%);
 }
 
 .pipe-5 {
-    top: 50%;
-    right: 150px;
-    width: calc(50% - 150px);
-    height: 4px;
-    transform: translateY(-50%);
+    bottom: 140px;
+    left: 130px;
+    width: calc(50% - 130px);
+    height: 3px;
 }
 
 .pipe-6 {
-    top: 50%;
-    left: 50%;
-    width: 4px;
-    height: calc(50% - 80px);
-    transform: translate(-50%, 0);
+    top: 140px;
+    left: 130px;
+    width: calc(50% - 130px);
+    height: 3px;
 }
 
 /* Flowing Data Animation */
