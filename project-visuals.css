@@ -249,44 +249,112 @@
     100% { top: 100%; }
 }
 
-/* Sun Simulator - Sun Movement */
+/* Sun Simulator - Sun Path Arc Visualization */
 .visual-sunsim {
     position: relative;
     width: 100%;
-    height: 300px;
-    background: linear-gradient(to bottom, #87CEEB 0%, #FFE5B4 100%);
+    height: 350px;
+    background: linear-gradient(to bottom,
+        #1a5f7a 0%,      /* Deep blue sky at top */
+        #57a0d3 30%,     /* Mid blue */
+        #87CEEB 60%,     /* Light blue */
+        #FFE5B4 90%,     /* Peachy horizon */
+        #d4a574 100%     /* Earth tone at bottom */
+    );
+    overflow: hidden;
 }
 
-.sun-path {
+/* Map-like background */
+.map-background {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(135deg,
+        rgba(139, 26, 26, 0.1) 0%,
+        rgba(184, 83, 78, 0.15) 50%,
+        rgba(139, 26, 26, 0.1) 100%
+    );
+    opacity: 0.4;
+}
+
+/* SVG sun arc */
+.sun-arc {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
 }
 
-.sun {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle, #FDB813 0%, #F39C12 100%);
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(253, 184, 19, 0.6);
-    animation: sunMove 8s ease-in-out infinite;
+.arc-path {
+    filter: drop-shadow(0 0 8px rgba(253, 184, 19, 0.3));
 }
 
-@keyframes sunMove {
-    0% { left: 10%; top: 70%; }
-    50% { left: 50%; top: 10%; }
-    100% { left: 90%; top: 70%; }
+.sun-marker {
+    filter: drop-shadow(0 0 15px rgba(253, 184, 19, 0.8));
 }
 
+/* Compass rose in corner */
 .compass-rose {
     position: absolute;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 80px;
-    opacity: 0.3;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(29, 29, 31, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.compass-direction {
+    position: absolute;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: white;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.compass-direction.n {
+    top: 5px;
+    color: #FDB813;
+}
+
+.compass-direction.s {
+    bottom: 5px;
+}
+
+.compass-direction.e {
+    right: 8px;
+}
+
+.compass-direction.w {
+    left: 8px;
+}
+
+/* Time indicators */
+.time-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.time-label {
+    font-size: 0.7rem;
+    color: white;
+    background: rgba(29, 29, 31, 0.5);
+    padding: 4px 8px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Face Detection - Face Scan Animation */
