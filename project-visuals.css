@@ -1,15 +1,15 @@
 /* Project Visual Animations */
 
 .project-visual {
-    margin: 50px auto;
-    max-width: 800px;
-    min-height: 400px;
+    margin: 15px auto;
+    max-width: 380px;
+    min-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.02);
-    border-radius: 16px;
-    padding: 40px;
+    border-radius: 12px;
+    padding: 20px;
     position: relative;
     overflow: hidden;
 }
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 450px;
+    height: 320px;
 }
 
 /* Agent + Model Combinations */
@@ -253,7 +253,7 @@
 .visual-sunsim {
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 280px;
     background: linear-gradient(to bottom,
         #1a5f7a 0%,      /* Deep blue sky at top */
         #57a0d3 30%,     /* Mid blue */
@@ -361,7 +361,7 @@
 .visual-face {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 280px;
 }
 
 .face-outline {
@@ -439,7 +439,7 @@
 /* Options Trading - Chart Animation */
 .visual-options {
     width: 100%;
-    height: 300px;
+    height: 280px;
     position: relative;
 }
 
@@ -507,7 +507,7 @@
 .visual-asteroid {
     background: #000;
     width: 100%;
-    height: 300px;
+    height: 280px;
     position: relative;
     overflow: hidden;
 }

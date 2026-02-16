@@ -407,7 +407,7 @@ body {
     width: 100%;
 }
 
-/* Left Side: Fixed Visual + Logo */
+/* Left Side: Fixed Visual Stack (Title, Animation, Links) */
 .visual-container {
     position: sticky;
     top: 0;
@@ -415,44 +415,57 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background: linear-gradient(135deg, rgba(139, 26, 26, 0.05), rgba(184, 83, 78, 0.05));
-    padding: 80px 60px;
+    padding: 40px 30px;
     opacity: 0;
     transform: scale(0.8);
     text-align: center;
 }
 
 .visual-container h3 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     color: var(--dark);
-    letter-spacing: -2px;
+    letter-spacing: -1px;
 }
 
 .visual-container .project-tagline {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--text-light);
     font-weight: 400;
-    margin-bottom: 30px;
-}
-
-.project-icon-wrapper {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 20px;
-    opacity: 0.9;
-}
-
-.project-icon-wrapper svg {
-    width: 100%;
-    height: 100%;
+    margin-bottom: 15px;
 }
 
 .project-visual {
     width: 100%;
-    max-width: 450px;
+    max-width: 380px;
+    flex-shrink: 0;
+}
+
+/* Links and tech in visual container */
+.visual-container .project-links {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.visual-container .tech-stack {
+    margin-bottom: 0;
+    justify-content: center;
+    max-width: 380px;
+}
+
+.visual-container .tech-tag {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+}
+
+.visual-container .btn-project,
+.visual-container .btn-project-secondary {
+    padding: 10px 24px;
+    font-size: 0.9rem;
 }
 
 /* Right Side: Scrolling Text */
@@ -469,14 +482,26 @@ body {
 /* Titles now on left side, removed from right */
 
 .text-inner .project-description {
-    font-size: 1.3rem;
-    line-height: 1.9;
+    font-size: 1.15rem;
+    line-height: 1.8;
     color: var(--text-light);
     margin-bottom: 40px;
 }
 
 .text-inner .project-description p {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
+}
+
+/* Section headers from markdown ## */
+.text-inner .section-header {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-top: 40px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
 }
 
 /* Mobile: Stack vertically */

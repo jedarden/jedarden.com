@@ -1,6 +1,15 @@
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
+// Parse markdown in description paragraphs
+function parseMarkdown(text) {
+    // Convert ## headers to h4 elements
+    if (text.startsWith('## ')) {
+        return `<h4 class="section-header">${text.substring(3)}</h4>`;
+    }
+    return `<p>${text}</p>`;
+}
+
 // Generate project HTML
 function generateProjectsHTML() {
     const projectsSection = document.querySelector('.projects');
@@ -13,28 +22,25 @@ function generateProjectsHTML() {
 
         projectDiv.innerHTML = `
             <div class="desktop-layout">
-                <!-- Left: Fixed Visual + Logo Container + Title -->
+                <!-- Left: Fixed Visual Stack (Title, Animation, Links) -->
                 <div class="visual-container">
                     <h3>${project.name}</h3>
                     <p class="project-tagline">${project.tagline}</p>
-                    <div class="project-icon-wrapper">
-                        ${project.icon}
-                    </div>
                     ${project.visual}
+                    <div class="project-links">
+                        ${project.github ? `<a href="${project.github}" target="_blank" class="btn-project">GitHub →</a>` : ''}
+                        ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn-project${project.github ? '-secondary' : ''}">Demo →</a>` : ''}
+                    </div>
+                    <div class="tech-stack">
+                        ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
                 </div>
 
                 <!-- Right: Scrolling Text -->
                 <div class="text-content">
                     <div class="text-inner">
                         <div class="project-description">
-                            ${project.description.map(para => `<p>${para}</p>`).join('')}
-                        </div>
-                        <div class="tech-stack">
-                            ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                        </div>
-                        <div class="project-links">
-                            ${project.github ? `<a href="${project.github}" target="_blank" class="btn-project">View on GitHub →</a>` : ''}
-                            ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn-project${project.github ? '-secondary' : ''}">View Demo →</a>` : ''}
+                            ${project.description.map(para => parseMarkdown(para)).join('')}
                         </div>
                     </div>
                 </div>
