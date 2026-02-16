@@ -114,11 +114,12 @@ function initNavScrollTracking(nav) {
         }
     });
 
-    // Show/hide nav based on scroll position
+    // Show/hide nav based on first project showcase visibility
     ScrollTrigger.create({
-        trigger: '.projects',
-        start: 'top 80%',
+        trigger: '.project-showcase',
+        start: 'top 90%',
         end: 'bottom 20%',
+        endTrigger: '.projects',
         onEnter: () => nav.classList.add('visible'),
         onLeave: () => nav.classList.remove('visible'),
         onEnterBack: () => nav.classList.add('visible'),
