@@ -227,26 +227,6 @@ const projects = [
     "demo": null,
     "icon": "<svg class=\"project-icon\" viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"100\" cy=\"100\" r=\"45\" fill=\"none\" stroke=\"#8B1A1A\" stroke-width=\"3\"/>\n                <circle cx=\"70\" cy=\"80\" r=\"12\" fill=\"#A52A2A\"/>\n                <circle cx=\"130\" cy=\"80\" r=\"12\" fill=\"#A52A2A\"/>\n                <circle cx=\"70\" cy=\"120\" r=\"12\" fill=\"#A52A2A\"/>\n                <circle cx=\"130\" cy=\"120\" r=\"12\" fill=\"#A52A2A\"/>\n                <circle cx=\"100\" cy=\"100\" r=\"15\" fill=\"#B8534E\"/>\n                <line x1=\"100\" y1=\"100\" x2=\"70\" y2=\"80\" stroke=\"#8B1A1A\" stroke-width=\"2\"/>\n                <line x1=\"100\" y1=\"100\" x2=\"130\" y2=\"80\" stroke=\"#8B1A1A\" stroke-width=\"2\"/>\n                <line x1=\"100\" y1=\"100\" x2=\"70\" y2=\"120\" stroke=\"#8B1A1A\" stroke-width=\"2\"/>\n                <line x1=\"100\" y1=\"100\" x2=\"130\" y2=\"120\" stroke=\"#8B1A1A\" stroke-width=\"2\"/>\n            </svg>",
     "visual": "<div class=\"project-visual\"><div class=\"tech-flow\"><div class=\"tech-box\">Context</div><div class=\"flow-arrow\">→</div><div class=\"tech-box\">RAG</div><div class=\"flow-arrow\">→</div><div class=\"tech-box\">Memory</div></div></div>"
-  },
-  {
-    "id": "ringmaster",
-    "name": "Ringmaster",
-    "tagline": "SDLC Orchestration Platform",
-    "description": [
-      "Ringmaster orchestrates the complete software development lifecycle for AI-powered teams, managing workflows from initial planning through deployment and beyond. It's the conductor that ensures every agent, tool, and process works in harmony to deliver production-ready software efficiently and reliably.",
-      "The platform implements sophisticated workflow engines that coordinate multiple specialized agents across different phases of development. Planning agents analyze requirements and create technical specifications. Coding agents implement features following best practices. Testing agents verify functionality and catch regressions. Review agents ensure code quality and security. Deployment agents handle the complexities of shipping to production.",
-      "Ringmaster integrates with version control systems, CI/CD pipelines, issue trackers, and monitoring platforms to provide end-to-end visibility and control. It includes intelligent rollback capabilities, automatic documentation generation, dependency management, and compliance checking. The system learns from each project to continuously improve its orchestration strategies, reducing time-to-deployment while maintaining high quality standards. With Ringmaster, teams can confidently run autonomous development operations at scale, knowing that every aspect of the SDLC is being managed by a battle-tested orchestration platform designed specifically for the age of AI-powered development."
-    ],
-    "tech": [
-      "Python",
-      "DevOps",
-      "Orchestration",
-      "CI/CD"
-    ],
-    "github": "https://github.com/jedarden/ringmaster",
-    "demo": null,
-    "icon": "<svg class=\"project-icon\" viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\">\n                <circle cx=\"100\" cy=\"100\" r=\"60\" fill=\"none\" stroke=\"#8B1A1A\" stroke-width=\"4\"/>\n                <circle cx=\"100\" cy=\"100\" r=\"40\" fill=\"none\" stroke=\"#A52A2A\" stroke-width=\"3\"/>\n                <circle cx=\"100\" cy=\"100\" r=\"20\" fill=\"none\" stroke=\"#B8534E\" stroke-width=\"2\"/>\n                <rect x=\"95\" y=\"30\" width=\"10\" height=\"140\" fill=\"#8B1A1A\"/>\n                <rect x=\"30\" y=\"95\" width=\"140\" height=\"10\" fill=\"#A52A2A\"/>\n                <circle cx=\"100\" cy=\"100\" r=\"8\" fill=\"#1D1D1F\"/>\n            </svg>",
-    "visual": "<div class=\"project-visual\"><div class=\"tech-flow\"><div class=\"tech-box\">Plan</div><div class=\"flow-arrow\">→</div><div class=\"tech-box\">Build</div><div class=\"flow-arrow\">→</div><div class=\"tech-box\">Deploy</div></div></div>"
   }
 ];
 

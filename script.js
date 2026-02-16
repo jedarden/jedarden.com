@@ -86,7 +86,7 @@ function initLogoAnimations() {
             }
         })
         .to(logoClone, { opacity: 0, scale: 0.8, immediateRender: false }, 0)
-        .to(visualContainer, { opacity: 0.5, scale: 0.95, immediateRender: false }, 0);
+        .to(visualContainer, { opacity: 0, scale: 0.95, immediateRender: false }, 0);
     });
 }
 
