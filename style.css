@@ -33,23 +33,33 @@ body {
 /* Floating Logo */
 .floating-logo {
     position: fixed;
-    top: 40px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     z-index: 1000;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     transition: none;
-    will-change: transform, top, left;
+    will-change: transform, top, left, opacity;
+    opacity: 1;
+    pointer-events: none;
 }
 
 .floating-logo img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 20px rgba(139, 26, 26, 0.15);
+    border: 4px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(139, 26, 26, 0.3);
     object-fit: cover;
+}
+
+/* Hide logo initially on hero, show after scroll */
+.hero .floating-logo {
+    position: absolute;
+    top: 30%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5);
 }
 
 /* Hero Section */

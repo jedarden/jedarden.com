@@ -48,7 +48,26 @@ function generateProjectsHTML() {
 // Initialize logo animations
 function initLogoAnimations() {
     const floatingLogo = document.querySelector('.floating-logo');
+    const hero = document.querySelector('.hero');
+    const projectsSection = document.querySelector('.projects');
     const projectShowcases = document.querySelectorAll('.project-showcase');
+
+    // Logo transitions from hero to projects
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: projectsSection,
+            start: 'top 80%',
+            end: 'top 50%',
+            scrub: 1
+        }
+    })
+    .to(floatingLogo, {
+        scale: 0.6,
+        top: '50%',
+        left: '50%',
+        xPercent: -50,
+        yPercent: -50
+    });
 
     projectShowcases.forEach((showcase, index) => {
         const visualContainer = showcase.querySelector('.visual-container');
@@ -66,13 +85,14 @@ function initLogoAnimations() {
                     const centerX = rect.left + rect.width / 2;
                     const centerY = rect.top + rect.height / 2;
 
-                    floatingLogo.style.left = `${centerX - 50}px`;
-                    floatingLogo.style.top = `${centerY - 50}px`;
+                    floatingLogo.style.left = `${centerX}px`;
+                    floatingLogo.style.top = `${centerY}px`;
+                    floatingLogo.style.transform = 'translate(-50%, -50%)';
                 }
             }
         })
         .fromTo(floatingLogo,
-            { opacity: 0, scale: 0.3, rotation: -180 },
+            { opacity: 0.3, scale: 0.3, rotation: -180 },
             { opacity: 1, scale: 0.8, rotation: 0 }, 0)
         .fromTo(visualContainer,
             { opacity: 0, scale: 0.8 },
@@ -87,7 +107,7 @@ function initLogoAnimations() {
                 scrub: 1
             }
         })
-        .to(floatingLogo, { opacity: 0, scale: 0.3, rotation: 180 })
+        .to(floatingLogo, { opacity: 0.3, scale: 0.3, rotation: 180 })
         .to(visualContainer, { opacity: 0.3, scale: 0.9 }, 0);
     });
 }
