@@ -34,7 +34,10 @@ function generateTOC() {
             e.preventDefault();
             const target = document.querySelector(`[data-project="${project.id}"]`);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const headerOffset = 70; // Account for sticky header
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         });
         tocContainer.appendChild(card);
@@ -69,7 +72,10 @@ function generateFloatingNav() {
             const targetId = item.dataset.target;
             const target = document.querySelector(`[data-project="${targetId}"]`);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const headerOffset = 70; // Account for sticky header
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         });
     });
