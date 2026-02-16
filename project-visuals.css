@@ -14,12 +14,14 @@
     overflow: hidden;
 }
 
-/* FORGE - Agent Orchestration Visualization */
+/* FORGE - Agent Orchestration Visualization with Data Pipes */
 .visual-forge {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     width: 100%;
+    height: 350px;
 }
 
 .agent-node {
@@ -29,17 +31,48 @@
     border-radius: 12px;
     text-align: center;
     font-size: 0.9rem;
-    animation: pulse 2s ease-in-out infinite;
     box-shadow: 0 4px 15px rgba(139, 26, 26, 0.3);
+    position: relative;
+    z-index: 10;
+    width: 100px;
 }
 
-.agent-node:nth-child(1) { animation-delay: 0s; }
-.agent-node:nth-child(2) { animation-delay: 0.3s; }
-.agent-node:nth-child(3) { animation-delay: 0.6s; }
+.agent-1 {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    animation: pulse 2s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.agent-2 {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    animation: pulse 2s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+.agent-3 {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulse 2s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.9; }
-    50% { transform: scale(1.05); opacity: 1; }
+    0%, 100% { transform: scale(1) translateX(-50%); opacity: 0.9; }
+    50% { transform: scale(1.05) translateX(-50%); opacity: 1; }
+}
+
+.agent-1, .agent-2 {
+    transform: none;
+}
+
+.agent-1:hover, .agent-2:hover, .agent-3:hover {
+    transform: scale(1.05);
 }
 
 .control-center {
@@ -47,22 +80,138 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    background: #B8534E;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #B8534E, #A52A2A);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-weight: bold;
-    z-index: 10;
-    animation: rotate 8s linear infinite;
+    font-size: 0.8rem;
+    z-index: 5;
+    box-shadow: 0 0 30px rgba(184, 83, 78, 0.5);
 }
 
-@keyframes rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
+/* Interconnecting Pipes */
+.forge-pipes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.pipe {
+    position: absolute;
+    background: linear-gradient(90deg,
+        rgba(139, 26, 26, 0.3) 0%,
+        rgba(184, 83, 78, 0.5) 50%,
+        rgba(139, 26, 26, 0.3) 100%
+    );
+    overflow: hidden;
+}
+
+/* Pipe positions connecting agents to center */
+.pipe-1 {
+    top: 80px;
+    left: 150px;
+    width: calc(50% - 150px);
+    height: 4px;
+    transform-origin: left center;
+}
+
+.pipe-2 {
+    top: 80px;
+    right: 150px;
+    width: calc(50% - 150px);
+    height: 4px;
+    transform-origin: right center;
+}
+
+.pipe-3 {
+    bottom: 80px;
+    left: 50%;
+    width: 4px;
+    height: calc(50% - 80px);
+    transform: translateX(-50%);
+}
+
+.pipe-4 {
+    top: 50%;
+    left: 150px;
+    width: calc(50% - 150px);
+    height: 4px;
+    transform: translateY(-50%);
+}
+
+.pipe-5 {
+    top: 50%;
+    right: 150px;
+    width: calc(50% - 150px);
+    height: 4px;
+    transform: translateY(-50%);
+}
+
+.pipe-6 {
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: calc(50% - 80px);
+    transform: translate(-50%, 0);
+}
+
+/* Flowing Data Animation */
+.data-flow {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 100%
+    );
+    animation: flowData 2s linear infinite;
+}
+
+.pipe-1 .data-flow, .pipe-4 .data-flow {
+    animation: flowDataRight 2s linear infinite;
+}
+
+.pipe-2 .data-flow, .pipe-5 .data-flow {
+    animation: flowDataLeft 2s linear infinite;
+}
+
+.pipe-3 .data-flow, .pipe-6 .data-flow {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 100%
+    );
+    animation: flowDataDown 2s linear infinite;
+}
+
+.pipe-2 .data-flow, .pipe-5 .data-flow { animation-delay: 0.3s; }
+.pipe-3 .data-flow { animation-delay: 0.6s; }
+.pipe-6 .data-flow { animation-delay: 0.9s; }
+
+@keyframes flowDataRight {
+    0% { left: -20px; }
+    100% { left: 100%; }
+}
+
+@keyframes flowDataLeft {
+    0% { right: -20px; }
+    100% { right: 100%; }
+}
+
+@keyframes flowDataDown {
+    0% { top: -20px; }
+    100% { top: 100%; }
 }
 
 /* Sun Simulator - Sun Movement */
