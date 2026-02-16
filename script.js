@@ -100,10 +100,10 @@ function initLogoAnimations() {
         })
         .fromTo(floatingLogo,
             { opacity: 0.3, scale: 0.3, rotation: -180 },
-            { opacity: 1, scale: 0.8, rotation: 0 }, 0)
+            { opacity: 1, scale: 0.8, rotation: 0, immediateRender: false }, 0)
         .fromTo(visualContainer,
             { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1 }, 0);
+            { opacity: 1, scale: 1, immediateRender: false }, 0);
 
         // Offramp: logo leaves the visual
         gsap.timeline({
@@ -114,8 +114,8 @@ function initLogoAnimations() {
                 scrub: 1
             }
         })
-        .to(floatingLogo, { opacity: 0.3, scale: 0.3, rotation: 180 })
-        .to(visualContainer, { opacity: 0.3, scale: 0.9 }, 0);
+        .to(floatingLogo, { opacity: 0.3, scale: 0.3, rotation: 180, immediateRender: false })
+        .to(visualContainer, { opacity: 0.3, scale: 0.9, immediateRender: false }, 0);
     });
 }
 
