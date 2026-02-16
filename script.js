@@ -13,7 +13,7 @@ function parseMarkdown(text) {
 // Generate table of contents cards
 function generateTOC() {
     const projectsSection = document.querySelector('.projects');
-    const sectionTitle = projectsSection.querySelector('.section-title');
+    const sectionBlurb = projectsSection.querySelector('.section-blurb');
 
     // Create TOC container
     const tocContainer = document.createElement('div');
@@ -43,8 +43,8 @@ function generateTOC() {
         tocContainer.appendChild(card);
     });
 
-    // Insert after section title
-    sectionTitle.insertAdjacentElement('afterend', tocContainer);
+    // Insert after section blurb
+    sectionBlurb.insertAdjacentElement('afterend', tocContainer);
 }
 
 // Generate floating navigation
