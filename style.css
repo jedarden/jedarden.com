@@ -608,14 +608,14 @@ body {
 /* Left Side: Fixed Visual Stack (Title, Animation, Links) */
 .visual-container {
     position: sticky;
-    top: 0;
-    height: 100vh;
+    top: 60px; /* Account for sticky header nav */
+    height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(135deg, rgba(139, 26, 26, 0.05), rgba(184, 83, 78, 0.05));
-    padding: 40px 30px;
+    padding: 30px;
     opacity: 0;
     transform: scale(0.8);
     text-align: center;
