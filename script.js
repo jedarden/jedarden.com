@@ -161,6 +161,7 @@ function generateProjectsHTML() {
                 <!-- Right: Scrolling Text -->
                 <div class="text-content">
                     <div class="text-inner">
+                        ${project.tldr ? `<p class="project-tldr">${project.tldr}</p>` : ''}
                         <div class="project-description">
                             ${project.description.map(para => parseMarkdown(para)).join('')}
                         </div>

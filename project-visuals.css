@@ -436,48 +436,53 @@
     border-radius: 50%;
 }
 
-/* Options Trading - Chart Animation */
+/* Options Trading - Chart Animation with Marble */
 .visual-options {
     width: 100%;
     height: 280px;
     position: relative;
+    background: linear-gradient(to bottom, rgba(139, 26, 26, 0.02), rgba(139, 26, 26, 0.08));
+    border-radius: 12px;
 }
 
-.chart-line {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.chart-container {
+    position: relative;
     width: 100%;
-    height: 2px;
-    background: #8B1A1A;
+    height: 100%;
+    overflow: hidden;
 }
 
-.price-line {
+.chart-svg {
     position: absolute;
-    bottom: 0;
+    bottom: 20%;
     left: 0;
     width: 100%;
     height: 60%;
-    background: linear-gradient(to right,
-        transparent 0%,
-        #8B1A1A 10%,
-        #A52A2A 30%,
-        #8B1A1A 50%,
-        #B8534E 70%,
-        #A52A2A 90%,
-        transparent 100%
-    );
-    clip-path: polygon(
-        0% 100%, 5% 80%, 15% 60%, 25% 75%,
-        35% 40%, 45% 55%, 55% 30%, 65% 45%,
-        75% 20%, 85% 35%, 95% 50%, 100% 100%
-    );
-    animation: fluctuate 4s ease-in-out infinite;
 }
 
-@keyframes fluctuate {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
+.chart-path {
+    stroke-dasharray: 5, 3;
+    opacity: 0.6;
+}
+
+.chart-marble {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle at 30% 30%, white 0%, #8B1A1A 50%, #6B1F1F 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(139, 26, 26, 0.5), inset 0 -2px 4px rgba(0,0,0,0.2);
+    animation: marbleRoll 4s ease-in-out infinite;
+    left: 0;
+    top: 50%;
+}
+
+@keyframes marbleRoll {
+    0% { left: 5%; top: 65%; }
+    25% { left: 30%; top: 40%; }
+    50% { left: 55%; top: 30%; }
+    75% { left: 80%; top: 45%; }
+    100% { left: 95%; top: 55%; }
 }
 
 /* News Trading - News Feed Animation */
@@ -1165,6 +1170,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.spaghetti-code {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.spaghetti-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.noodle {
+    fill: none;
+    stroke: #8B1A1A;
+    stroke-width: 3;
+    stroke-linecap: round;
+    animation: noodleWiggle 3s ease-in-out infinite;
+}
+
+.noodle-1 { stroke: #A52A2A; animation-delay: 0s; }
+.noodle-2 { stroke: #8B1A1A; animation-delay: 0.3s; }
+.noodle-3 { stroke: #B8534E; animation-delay: 0.6s; }
+
+@keyframes noodleWiggle {
+    0%, 100% { d: path("M10 20 Q30 40, 50 20 T90 30"); }
+    50% { d: path("M10 25 Q30 10, 50 30 T90 20"); }
 }
 
 .duck-bubble {

@@ -181,9 +181,18 @@ body {
 .section-blurb {
     text-align: center;
     font-size: 1.2rem;
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--text-light);
     max-width: 700px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+}
+
+.section-tagline {
+    text-align: center;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--primary);
     margin: 0 auto 60px;
     padding: 0 20px;
 }
@@ -713,6 +722,16 @@ body {
 }
 
 /* Titles now on left side, removed from right */
+
+.project-tldr {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--border);
+}
 
 .text-inner .project-description {
     font-size: 1.15rem;
