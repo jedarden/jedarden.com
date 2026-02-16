@@ -574,23 +574,74 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Compact Hero for mobile - ensure all elements above the fold */
+    .hero {
+        padding: 120px 20px 40px;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for modern browsers */
+        justify-content: flex-start;
+    }
+
+    .hero-logo {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content {
+        margin-top: 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: -1.5px;
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .hero-links {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 12px 32px;
+        font-size: 1rem;
+    }
+
+    .scroll-indicator {
+        position: relative;
+        bottom: auto;
+        margin-top: auto;
+        padding-bottom: 20px;
+    }
+
+    .scroll-indicator span {
+        font-size: 0.75rem;
+    }
+
+    .scroll-arrow {
+        width: 20px;
+        height: 20px;
+    }
+
     .floating-logo {
         width: 70px;
         height: 70px;
         top: 20px;
-    }
-
-    .hero-title {
-        font-size: 3rem;
-        letter-spacing: -1.5px;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-
-    .hero-description {
-        font-size: 1.1rem;
     }
 
     .project-icon {
