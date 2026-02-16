@@ -298,10 +298,10 @@
 /* Compass rose in corner */
 .compass-rose {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 70px;
-    height: 70px;
+    bottom: 15px;
+    right: 15px;
+    width: 85px;
+    height: 85px;
     border: 2px solid rgba(255, 255, 255, 0.6);
     border-radius: 50%;
     display: flex;
@@ -320,20 +320,20 @@
 }
 
 .compass-direction.n {
-    top: 5px;
+    top: 1px;
     color: #FDB813;
 }
 
 .compass-direction.s {
-    bottom: 5px;
+    bottom: 1px;
 }
 
 .compass-direction.e {
-    right: 8px;
+    right: 3px;
 }
 
 .compass-direction.w {
-    left: 8px;
+    left: 3px;
 }
 
 /* Time indicators */
