@@ -114,9 +114,17 @@ function initLogoAnimations() {
 
     projectShowcases.forEach((showcase, index) => {
         const visualContainer = showcase.querySelector('.visual-container');
-        const rect = visualContainer.getBoundingClientRect();
+        const projectVisual = showcase.querySelector('.project-visual');
+        const projectId = showcase.getAttribute('data-project');
 
-        // Onramp: logo enters the visual, visual fades in
+        // Create logo clone for this visual
+        const logoClone = document.createElement('div');
+        logoClone.className = 'logo-in-visual';
+        logoClone.style.backgroundImage = 'url(logo.jpg)';
+        logoClone.style.opacity = '0';
+        projectVisual.appendChild(logoClone);
+
+        // Onramp: logo enters visual, visual fades in, logo clone appears
         const onrampTL = gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
@@ -129,12 +137,15 @@ function initLogoAnimations() {
         onrampTL
             .fromTo(floatingLogo,
                 { opacity: 0.3, scale: 0.3, rotation: -180 },
-                { opacity: 1, scale: 0.8, rotation: 0, immediateRender: false }, 0)
+                { opacity: 0, scale: 0.1, rotation: 0, immediateRender: false }, 0)  // Fade out main logo
             .fromTo(visualContainer,
                 { opacity: 0, scale: 0.8 },
-                { opacity: 1, scale: 1, immediateRender: false }, 0);
+                { opacity: 1, scale: 1, immediateRender: false }, 0)
+            .fromTo(logoClone,
+                { opacity: 0, scale: 0.5 },
+                { opacity: 1, scale: 1, immediateRender: false }, 0.3);  // Fade in logo clone
 
-        // Offramp: logo leaves the visual
+        // Offramp: logo clone leaves, visual fades, main logo returns
         gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
@@ -143,8 +154,9 @@ function initLogoAnimations() {
                 scrub: 1
             }
         })
-        .to(floatingLogo, { opacity: 0.3, scale: 0.3, rotation: 180, immediateRender: false })
-        .to(visualContainer, { opacity: 0.3, scale: 0.9, immediateRender: false }, 0);
+        .to(logoClone, { opacity: 0, scale: 0.5, immediateRender: false }, 0)
+        .to(visualContainer, { opacity: 0.3, scale: 0.9, immediateRender: false }, 0)
+        .to(floatingLogo, { opacity: 0.3, scale: 0.3, rotation: 180, immediateRender: false }, 0.3);
     });
 }
 

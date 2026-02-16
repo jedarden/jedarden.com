@@ -1,0 +1,203 @@
+/* Logo Integration Animations for Each Project */
+
+/* Logo container within visuals */
+.logo-in-visual {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 15;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+}
+
+/* FORGE - Logo as central orchestrator */
+.visual-forge .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: orchestrate 4s ease-in-out infinite;
+}
+
+@keyframes orchestrate {
+    0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-50%, -50%) scale(1.1) rotate(180deg); }
+}
+
+/* Sun Simulator - Logo as Earth */
+.visual-sunsim .logo-in-visual {
+    width: 50px;
+    height: 50px;
+    animation: earthOrbit 12s linear infinite;
+}
+
+@keyframes earthOrbit {
+    0% { left: 80%; top: 60%; }
+    25% { left: 70%; top: 30%; }
+    50% { left: 50%; top: 20%; }
+    75% { left: 30%; top: 30%; }
+    100% { left: 80%; top: 60%; }
+}
+
+/* Face Detection - Logo as detected face */
+.visual-face .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: faceDetect 3s ease-in-out infinite;
+}
+
+@keyframes faceDetect {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(139, 26, 26, 0.7); }
+    50% { box-shadow: 0 0 0 20px rgba(139, 26, 26, 0); }
+}
+
+/* Gait Analysis - Logo as tracked subject */
+.visual-gait .logo-in-visual {
+    animation: gaitWalk 6s ease-in-out infinite;
+}
+
+@keyframes gaitWalk {
+    0% { left: 10%; top: 50%; transform: translateY(-50%) scale(1); }
+    25% { top: 45%; transform: translateY(-50%) scale(1.05); }
+    50% { left: 50%; top: 50%; transform: translateY(-50%) scale(1); }
+    75% { top: 45%; transform: translateY(-50%) scale(1.05); }
+    100% { left: 90%; top: 50%; transform: translateY(-50%) scale(1); }
+}
+
+/* Options Trading - Logo as key indicator */
+.visual-options .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: optionsPulse 2s ease-in-out infinite;
+}
+
+@keyframes optionsPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.8; }
+}
+
+/* News Trading - Logo pulsing with sentiment */
+.visual-newstrading .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: newsPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes newsPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(184, 83, 78, 0.7);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 0 15px rgba(184, 83, 78, 0);
+    }
+}
+
+/* Asteroid - Logo as spaceship */
+.visual-asteroid .logo-in-visual {
+    animation: asteroidDodge 8s linear infinite;
+}
+
+@keyframes asteroidDodge {
+    0% { left: 10%; top: 80%; }
+    25% { left: 30%; top: 20%; }
+    50% { left: 70%; top: 60%; }
+    75% { left: 50%; top: 30%; }
+    100% { left: 10%; top: 80%; }
+}
+
+/* CLASP - Logo in proxy flow */
+.visual-clasp .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    animation: proxyFlow 3s ease-in-out infinite;
+}
+
+@keyframes proxyFlow {
+    0%, 100% { transform: translate(-50%, -50%) translateX(-30px); }
+    50% { transform: translate(-50%, -50%) translateX(30px); }
+}
+
+/* CCDash - Logo as dashboard element */
+.visual-ccdash .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: dashboardScan 4s linear infinite;
+}
+
+@keyframes dashboardScan {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+/* DUCK-E - Logo as voice center */
+.visual-ducke .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: voiceWave 2s ease-in-out infinite;
+}
+
+@keyframes voiceWave {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(139, 26, 26, 0.6),
+                    0 0 0 0 rgba(139, 26, 26, 0.4),
+                    0 0 0 0 rgba(139, 26, 26, 0.2);
+    }
+    33% {
+        box-shadow: 0 0 0 10px rgba(139, 26, 26, 0),
+                    0 0 0 0 rgba(139, 26, 26, 0.4),
+                    0 0 0 0 rgba(139, 26, 26, 0.2);
+    }
+    66% {
+        box-shadow: 0 0 0 10px rgba(139, 26, 26, 0),
+                    0 0 0 20px rgba(139, 26, 26, 0),
+                    0 0 0 0 rgba(139, 26, 26, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 10px rgba(139, 26, 26, 0),
+                    0 0 0 20px rgba(139, 26, 26, 0),
+                    0 0 0 30px rgba(139, 26, 26, 0);
+    }
+}
+
+/* MANA - Logo as memory node */
+.visual-mana .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: memoryAccess 3s ease-in-out infinite;
+}
+
+@keyframes memoryAccess {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+/* Ringmaster - Logo as orchestration center */
+.visual-ringmaster .logo-in-visual {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ringmasterSpin 5s linear infinite;
+}
+
+@keyframes ringmasterSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
