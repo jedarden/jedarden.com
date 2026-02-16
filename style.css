@@ -411,7 +411,8 @@ body {
 
 /* Desktop Two-Column Layout */
 .desktop-layout {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     min-height: 300vh;
     position: relative;
     width: 100%;
@@ -421,25 +422,22 @@ body {
 .visual-container {
     position: sticky;
     top: 0;
-    left: 0;
-    width: 50vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, rgba(139, 26, 26, 0.05), rgba(184, 83, 78, 0.05));
-    padding: 60px;
+    padding: 80px;
     opacity: 0;
     transform: scale(0.8);
-    flex-shrink: 0;
 }
 
 .project-icon-wrapper {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 40px;
-    opacity: 0.8;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 60px;
+    opacity: 0.9;
 }
 
 .project-icon-wrapper svg {
@@ -447,18 +445,20 @@ body {
     height: 100%;
 }
 
+.project-visual {
+    width: 100%;
+    max-width: 500px;
+}
+
 /* Right Side: Scrolling Text */
 .text-content {
-    width: 50vw;
     background: var(--cream);
     z-index: 10;
-    flex-shrink: 0;
+    padding: 120px 80px;
 }
 
 .text-inner {
-    padding: 120px 80px;
     min-height: 200vh;
-    max-width: 900px;
 }
 
 .text-inner h3 {
