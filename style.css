@@ -696,12 +696,14 @@ body {
 .visual-container .tech-stack {
     margin-bottom: 0;
     justify-content: center;
-    max-width: 380px;
+    max-width: 100%;
+    flex-wrap: nowrap;
 }
 
 .visual-container .tech-tag {
-    padding: 6px 14px;
-    font-size: 0.8rem;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    white-space: nowrap;
 }
 
 .visual-container .btn-project,

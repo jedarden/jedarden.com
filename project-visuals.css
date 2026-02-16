@@ -416,16 +416,18 @@
     width: 80px;
     height: 160px;
     position: relative;
-    animation: walk 2s ease-in-out infinite;
 }
 
-.skeleton-figure:nth-child(2) { animation-delay: 0.5s; }
-.skeleton-figure:nth-child(3) { animation-delay: 1s; }
+.gait-waving-arm {
+    transform-origin: 40px 50px;
+    animation: waveArm 1.5s ease-in-out infinite;
+}
 
-@keyframes walk {
-    0%, 100% { transform: translateY(0); }
-    25% { transform: translateY(-10px); }
-    75% { transform: translateY(-5px); }
+@keyframes waveArm {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-30deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-30deg); }
 }
 
 .joint {
@@ -748,7 +750,8 @@
 .visual-ccdash {
     width: 100%;
     height: 320px;
-    background: #1D1D1F;
+    background: white;
+    border: 2px solid #1D1D1F;
     border-radius: 12px;
     padding: 15px;
     font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
@@ -757,6 +760,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: relative;
 }
 
 .tui-header {
@@ -794,7 +798,7 @@
     border: 1px solid #333;
     border-radius: 4px;
     padding: 8px;
-    background: rgba(0, 0, 0, 0.3);
+    background: #2D2D30;
 }
 
 .panel-label {
@@ -907,6 +911,20 @@
 @keyframes dotPulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
+}
+
+.ccdash-corner-icon {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 28px;
+    height: 28px;
+    opacity: 0.6;
+}
+
+.ccdash-corner-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 /* MANA - Memory-Augmented Neural Assistant */
