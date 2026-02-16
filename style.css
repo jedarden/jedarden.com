@@ -414,6 +414,7 @@ body {
     display: flex;
     min-height: 300vh;
     position: relative;
+    width: 100%;
 }
 
 /* Left Side: Fixed Visual + Logo */
@@ -421,7 +422,7 @@ body {
     position: sticky;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 50vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -431,6 +432,7 @@ body {
     padding: 60px;
     opacity: 0;
     transform: scale(0.8);
+    flex-shrink: 0;
 }
 
 .project-icon-wrapper {
@@ -447,15 +449,16 @@ body {
 
 /* Right Side: Scrolling Text */
 .text-content {
-    width: 50%;
-    margin-left: 50%;
+    width: 50vw;
     background: var(--cream);
     z-index: 10;
+    flex-shrink: 0;
 }
 
 .text-inner {
     padding: 120px 80px;
     min-height: 200vh;
+    max-width: 900px;
 }
 
 .text-inner h3 {
