@@ -10,6 +10,116 @@ function parseMarkdown(text) {
     return `<p>${text}</p>`;
 }
 
+// Generate table of contents cards
+function generateTOC() {
+    const projectsSection = document.querySelector('.projects');
+    const sectionTitle = projectsSection.querySelector('.section-title');
+
+    // Create TOC container
+    const tocContainer = document.createElement('div');
+    tocContainer.className = 'toc-grid';
+
+    projects.forEach(project => {
+        const card = document.createElement('a');
+        card.className = 'toc-card';
+        card.href = `#${project.id}`;
+        card.innerHTML = `
+            <div class="toc-icon">${project.icon || ''}</div>
+            <div class="toc-info">
+                <span class="toc-name">${project.name}</span>
+                <span class="toc-tagline">${project.tagline}</span>
+            </div>
+        `;
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(`[data-project="${project.id}"]`);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+        tocContainer.appendChild(card);
+    });
+
+    // Insert after section title
+    sectionTitle.insertAdjacentElement('afterend', tocContainer);
+}
+
+// Generate floating navigation
+function generateFloatingNav() {
+    const nav = document.createElement('nav');
+    nav.className = 'floating-nav';
+    nav.innerHTML = `
+        <div class="floating-nav-header">Projects</div>
+        <div class="floating-nav-items">
+            ${projects.map(project => `
+                <a class="floating-nav-item" href="#${project.id}" data-target="${project.id}">
+                    <span class="nav-dot"></span>
+                    <span class="nav-label">${project.name}</span>
+                </a>
+            `).join('')}
+        </div>
+    `;
+
+    document.body.appendChild(nav);
+
+    // Add click handlers
+    nav.querySelectorAll('.floating-nav-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = item.dataset.target;
+            const target = document.querySelector(`[data-project="${targetId}"]`);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Track active project on scroll
+    initNavScrollTracking(nav);
+}
+
+// Track which project is in view and highlight in nav
+function initNavScrollTracking(nav) {
+    const navItems = nav.querySelectorAll('.floating-nav-item');
+
+    ScrollTrigger.create({
+        trigger: '.projects',
+        start: 'top bottom',
+        end: 'bottom top',
+        onUpdate: () => {
+            const showcases = document.querySelectorAll('.project-showcase');
+            let activeId = null;
+
+            showcases.forEach(showcase => {
+                const rect = showcase.getBoundingClientRect();
+                const viewportMiddle = window.innerHeight / 2;
+                if (rect.top < viewportMiddle && rect.bottom > viewportMiddle) {
+                    activeId = showcase.dataset.project;
+                }
+            });
+
+            navItems.forEach(item => {
+                if (item.dataset.target === activeId) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    // Show/hide nav based on scroll position
+    ScrollTrigger.create({
+        trigger: '.projects',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        onEnter: () => nav.classList.add('visible'),
+        onLeave: () => nav.classList.remove('visible'),
+        onEnterBack: () => nav.classList.add('visible'),
+        onLeaveBack: () => nav.classList.remove('visible')
+    });
+}
+
 // Generate project HTML
 function generateProjectsHTML() {
     const projectsSection = document.querySelector('.projects');
@@ -18,6 +128,7 @@ function generateProjectsHTML() {
     projects.forEach(project => {
         const projectDiv = document.createElement('div');
         projectDiv.className = 'project-showcase';
+        projectDiv.id = project.id;
         projectDiv.setAttribute('data-project', project.id);
 
         projectDiv.innerHTML = `
@@ -114,7 +225,9 @@ function initHeroAnimations() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    generateTOC();
     generateProjectsHTML();
+    generateFloatingNav();
     initHeroAnimations();
     initLogoAnimations();
 });
