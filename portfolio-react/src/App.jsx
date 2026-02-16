@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Agentation } from 'agentation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,7 +15,7 @@ const projects = [
     description: [
       'FORGE represents a paradigm shift in AI-powered development workflows. As an intelligent control panel for autonomous coding agents, it provides a unified interface for managing complex multi-agent orchestration, resource allocation, and federated task distribution.',
       'At its core, FORGE solves the challenge of coordinating multiple AI agents working on different aspects of a software project simultaneously. It handles context management, prevents conflicting changes, and ensures that agents have access to the right resources at the right time.',
-      'The platform includes real-time monitoring dashboards, automatic conflict resolution, intelligent task prioritization, and seamless integration with existing development tools.'
+      'The platform includes real-time monitoring dashboards, automatic conflict resolution, intelligent task prioritization, and seamless integration with existing development tools. FORGE enables development teams to scale their autonomous coding operations from single-agent tasks to complex, multi-agent projects involving dozens of specialized AI workers.'
     ],
     tech: ['Python', 'AI Orchestration', 'Distributed Systems', 'Task Management'],
     github: 'https://github.com/jedarden/forge',
@@ -44,9 +44,9 @@ const projects = [
     name: 'Sun Simulator',
     tagline: 'Advanced solar position and radiation modeling',
     description: [
-      'An advanced astronomical simulation platform that accurately models solar position, intensity, and radiation patterns across any location on Earth throughout the year.',
-      'The system calculates solar altitude, azimuth, and intensity using established astronomical algorithms, accounting for atmospheric refraction, seasonal variations, and geographical factors.',
-      'Applications range from architectural planning and solar panel installation to agricultural timing and photography planning.'
+      'An advanced astronomical simulation platform that accurately models solar position, intensity, and radiation patterns across any location on Earth throughout the year. The simulator combines precise orbital mechanics with atmospheric modeling to provide real-time visualization of solar phenomena.',
+      'The system calculates solar altitude, azimuth, and intensity using established astronomical algorithms, accounting for atmospheric refraction, seasonal variations, and geographical factors. It provides interactive visualizations that help users understand solar energy potential, optimal panel positioning, and seasonal lighting patterns.',
+      'Applications range from architectural planning and solar panel installation to agricultural timing and photography planning. The simulator has been used by architects to optimize building orientation, solar engineers to maximize panel efficiency, and researchers studying climate patterns.'
     ],
     tech: ['Python', 'Astronomy', 'Data Visualization', 'Simulation'],
     demo: 'https://sunsim.jedarden.com',
@@ -56,6 +56,11 @@ const projects = [
         <line x1="100" y1="40" x2="100" y2="60" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
         <line x1="145" y1="55" x2="130" y2="70" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
         <line x1="160" y1="100" x2="140" y2="100" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="145" y1="145" x2="130" y2="130" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="100" y1="160" x2="100" y2="140" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="55" y1="145" x2="70" y2="130" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="40" y1="100" x2="60" y2="100" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
+        <line x1="55" y1="55" x2="70" y2="70" stroke="#A52A2A" strokeWidth="4" strokeLinecap="round"/>
       </svg>
     ),
     visual: (
@@ -69,33 +74,59 @@ const projects = [
 ];
 
 function App() {
+  const logoRef = useRef(null);
+
   useEffect(() => {
     const projectShowcases = document.querySelectorAll('.project-showcase');
+    const floatingLogo = logoRef.current;
 
-    projectShowcases.forEach((showcase) => {
-      const icon = showcase.querySelector('.project-icon');
+    projectShowcases.forEach((showcase, index) => {
+      const visualContainer = showcase.querySelector('.visual-container');
+      const textContent = showcase.querySelector('.text-content');
+      const projectVisual = showcase.querySelector('.project-visual');
 
-      gsap.set(icon, { opacity: 0, scale: 0.5, rotation: -45 });
-
+      // Onramp: logo enters the visual
       const onrampTL = gsap.timeline({
         scrollTrigger: {
           trigger: showcase,
           start: 'top 80%',
           end: 'top 20%',
-          scrub: 1
+          scrub: 1,
+          onEnter: () => {
+            // Move logo into the visual container
+            const visualRect = visualContainer.getBoundingClientRect();
+            gsap.to(floatingLogo, {
+              position: 'fixed',
+              top: visualRect.top + visualRect.height / 2 - 50,
+              left: visualRect.left + visualRect.width / 2 - 50,
+              scale: 0.8,
+              duration: 0
+            });
+          }
         }
       });
-      onrampTL.to(icon, { opacity: 1, scale: 1, rotation: 0 });
 
+      onrampTL
+        .fromTo(floatingLogo,
+          { opacity: 0, scale: 0.3, rotation: -180 },
+          { opacity: 1, scale: 0.8, rotation: 0 }, 0)
+        .fromTo(visualContainer,
+          { opacity: 0, scale: 0.8 },
+          { opacity: 1, scale: 1 }, 0);
+
+      // Offramp: logo leaves the visual
       const offrampTL = gsap.timeline({
         scrollTrigger: {
           trigger: showcase,
-          start: 'bottom 80%',
-          end: 'bottom 20%',
+          start: 'bottom 40%',
+          end: 'bottom 10%',
           scrub: 1
         }
       });
-      offrampTL.to(icon, { opacity: 0, scale: 0.3, rotation: 45 });
+
+      offrampTL
+        .to(floatingLogo, { opacity: 0, scale: 0.3, rotation: 180 })
+        .to(visualContainer, { opacity: 0.3, scale: 0.9 }, 0);
     });
 
     return () => {
@@ -105,7 +136,7 @@ function App() {
 
   return (
     <>
-      <div className="floating-logo">
+      <div className="floating-logo" ref={logoRef}>
         <img src={logo} alt="Jed Arden" id="logo" />
       </div>
 
@@ -134,15 +165,20 @@ function App() {
 
         {projects.map((project) => (
           <div key={project.id} className="project-showcase" data-project={project.id}>
-            <div className="sticky-icon-container">
-              <div className="project-icon">{project.icon}</div>
-            </div>
-            <div className="project-content-scroll">
-              <div className="content-section">
-                <div className="content-wrapper">
+            <div className="desktop-layout">
+              {/* Left side: Fixed visual + logo */}
+              <div className="visual-container">
+                <div className="project-icon-wrapper">
+                  {project.icon}
+                </div>
+                {project.visual}
+              </div>
+
+              {/* Right side: Scrolling text */}
+              <div className="text-content">
+                <div className="text-inner">
                   <h3>{project.name}</h3>
                   <p className="project-tagline">{project.tagline}</p>
-                  {project.visual}
                   <div className="project-description">
                     {project.description.map((para, idx) => (
                       <p key={idx}>{para}</p>

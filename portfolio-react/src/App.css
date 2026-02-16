@@ -743,3 +743,135 @@ body {
     color: #8B1A1A;
     animation: pulse 2s ease-in-out infinite;
 }
+
+/* Desktop Two-Column Layout */
+.desktop-layout {
+    display: flex;
+    min-height: 300vh;
+    position: relative;
+}
+
+/* Left Side: Fixed Visual + Logo */
+.visual-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(139, 26, 26, 0.05), rgba(184, 83, 78, 0.05));
+    padding: 60px;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.project-icon-wrapper {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.project-icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Right Side: Scrolling Text */
+.text-content {
+    width: 50%;
+    margin-left: 50%;
+    background: var(--cream);
+    z-index: 10;
+}
+
+.text-inner {
+    padding: 120px 80px;
+    min-height: 200vh;
+}
+
+.text-inner h3 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--dark);
+    letter-spacing: -2.5px;
+}
+
+.text-inner .project-tagline {
+    font-size: 1.75rem;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.text-inner .project-description {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.text-inner .project-description p {
+    margin-bottom: 28px;
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 1024px) {
+    .desktop-layout {
+        flex-direction: column;
+    }
+
+    .visual-container {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        margin-bottom: 40px;
+    }
+
+    .text-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .text-inner {
+        padding: 60px 40px;
+        min-height: auto;
+    }
+
+    .text-inner h3 {
+        font-size: 3rem;
+    }
+
+    .text-inner .project-tagline {
+        font-size: 1.4rem;
+    }
+
+    .text-inner .project-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-inner {
+        padding: 40px 20px;
+    }
+
+    .text-inner h3 {
+        font-size: 2.5rem;
+    }
+
+    .visual-container {
+        height: 50vh;
+        padding: 40px 20px;
+    }
+
+    .project-icon-wrapper {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+}
