@@ -27,19 +27,15 @@
     50% { transform: translate(-50%, -50%) scale(1.1) rotate(180deg); }
 }
 
-/* Sun Simulator - Logo as Earth */
+/* Sun Simulator - Logo centered in compass rose */
 .visual-sunsim .logo-in-visual {
-    width: 50px;
-    height: 50px;
-    animation: earthOrbit 12s linear infinite;
-}
-
-@keyframes earthOrbit {
-    0% { left: 80%; top: 60%; }
-    25% { left: 70%; top: 30%; }
-    50% { left: 50%; top: 20%; }
-    75% { left: 30%; top: 30%; }
-    100% { left: 80%; top: 60%; }
+    width: 36px;
+    height: 36px;
+    bottom: 37px;
+    right: 37px;
+    top: auto;
+    left: auto;
+    animation: none;
 }
 
 /* Face Detection - Logo as detected face */
