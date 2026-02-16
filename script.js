@@ -70,7 +70,15 @@ function initLogoAnimations() {
                 opacity: 1,
                 rotation: 0,
                 scale: 1,
-                duration: 0.3
+                top: '20vh',
+                left: '50%',
+                xPercent: 0,
+                yPercent: 0,
+                clearProps: 'transform',
+                duration: 0.3,
+                onComplete: () => {
+                    floatingLogo.style.transform = 'translateX(-50%)';
+                }
             });
         },
         onEnterBack: () => {
@@ -78,7 +86,15 @@ function initLogoAnimations() {
                 opacity: 1,
                 rotation: 0,
                 scale: 1,
-                duration: 0.3
+                top: '20vh',
+                left: '50%',
+                xPercent: 0,
+                yPercent: 0,
+                clearProps: 'transform',
+                duration: 0.3,
+                onComplete: () => {
+                    floatingLogo.style.transform = 'translateX(-50%)';
+                }
             });
         }
     });
@@ -98,32 +114,25 @@ function initLogoAnimations() {
 
     projectShowcases.forEach((showcase, index) => {
         const visualContainer = showcase.querySelector('.visual-container');
+        const rect = visualContainer.getBoundingClientRect();
 
         // Onramp: logo enters the visual, visual fades in
-        gsap.timeline({
+        const onrampTL = gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
                 start: 'top 80%',
                 end: 'top 20%',
-                scrub: 1,
-                onUpdate: (self) => {
-                    // Position logo within visual container during scroll
-                    const rect = visualContainer.getBoundingClientRect();
-                    const centerX = rect.left + rect.width / 2;
-                    const centerY = rect.top + rect.height / 2;
-
-                    floatingLogo.style.left = `${centerX}px`;
-                    floatingLogo.style.top = `${centerY}px`;
-                    floatingLogo.style.transform = 'translate(-50%, -50%)';
-                }
+                scrub: 1
             }
-        })
-        .fromTo(floatingLogo,
-            { opacity: 0.3, scale: 0.3, rotation: -180 },
-            { opacity: 1, scale: 0.8, rotation: 0, immediateRender: false }, 0)
-        .fromTo(visualContainer,
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, immediateRender: false }, 0);
+        });
+
+        onrampTL
+            .fromTo(floatingLogo,
+                { opacity: 0.3, scale: 0.3, rotation: -180 },
+                { opacity: 1, scale: 0.8, rotation: 0, immediateRender: false }, 0)
+            .fromTo(visualContainer,
+                { opacity: 0, scale: 0.8 },
+                { opacity: 1, scale: 1, immediateRender: false }, 0);
 
         // Offramp: logo leaves the visual
         gsap.timeline({
