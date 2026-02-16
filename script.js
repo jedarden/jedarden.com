@@ -145,6 +145,17 @@ function initLogoAnimations() {
                 { opacity: 0, scale: 0.5 },
                 { opacity: 1, scale: 1, immediateRender: false }, 0.3);  // Fade in logo clone
 
+        // Middle: keep floating logo hidden while inside project
+        ScrollTrigger.create({
+            trigger: showcase,
+            start: 'top 20%',
+            end: 'bottom 40%',
+            onEnter: () => gsap.set(floatingLogo, { opacity: 0, scale: 0.1 }),
+            onEnterBack: () => gsap.set(floatingLogo, { opacity: 0, scale: 0.1 }),
+            onLeave: () => {}, // Offramp will handle this
+            onLeaveBack: () => {} // Onramp will handle this
+        });
+
         // Offramp: logo clone leaves, visual fades, main logo returns
         gsap.timeline({
             scrollTrigger: {
