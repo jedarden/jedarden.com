@@ -174,6 +174,11 @@ function generateProjectsHTML() {
     });
 }
 
+// Check if mobile viewport
+function isMobile() {
+    return window.innerWidth <= 1024;
+}
+
 // Initialize logo animations (simplified - fixed hero logo)
 function initLogoAnimations() {
     const projectShowcases = document.querySelectorAll('.project-showcase');
@@ -186,8 +191,18 @@ function initLogoAnimations() {
         const logoClone = document.createElement('div');
         logoClone.className = 'logo-in-visual';
         logoClone.style.backgroundImage = 'url(logo.jpg)';
-        logoClone.style.opacity = '0';
         projectVisual.appendChild(logoClone);
+
+        // On mobile, show everything immediately without scroll animations
+        if (isMobile()) {
+            visualContainer.style.opacity = '1';
+            visualContainer.style.transform = 'none';
+            logoClone.style.opacity = '1';
+            return;
+        }
+
+        // Desktop: scroll-based animations
+        logoClone.style.opacity = '0';
 
         // Project enters viewport: visual and logo clone fade in
         gsap.timeline({

@@ -99,6 +99,42 @@
     50% { opacity: 1; box-shadow: 0 6px 25px rgba(139, 26, 26, 0.6); }
 }
 
+/* Mobile: Scale down FORGE visual */
+@media (max-width: 768px) {
+    .visual-forge {
+        height: 280px;
+        transform: scale(0.75);
+        transform-origin: center center;
+    }
+
+    .agent-combo {
+        padding: 8px 10px;
+        min-width: 70px;
+        font-size: 0.65rem;
+    }
+
+    .agent-name {
+        font-size: 0.7rem;
+    }
+
+    .model-name {
+        font-size: 0.6rem;
+    }
+
+    .control-center {
+        width: 90px;
+        height: 90px;
+    }
+
+    .forge-label {
+        font-size: 1rem;
+    }
+
+    .forge-subtitle {
+        font-size: 0.55rem;
+    }
+}
+
 /* FORGE Control Center */
 .control-center {
     position: absolute;
