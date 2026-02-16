@@ -45,129 +45,48 @@ function generateProjectsHTML() {
     });
 }
 
-// Initialize logo animations
+// Initialize logo animations (simplified - fixed hero logo)
 function initLogoAnimations() {
-    const floatingLogo = document.querySelector('.floating-logo');
-    const hero = document.querySelector('.hero');
-    const projectsSection = document.querySelector('.projects');
     const projectShowcases = document.querySelectorAll('.project-showcase');
-
-    // Explicitly set initial hero state
-    gsap.set(floatingLogo, {
-        opacity: 1,
-        rotation: 0,
-        scale: 1,
-        clearProps: 'all'  // Clear any previous GSAP properties
-    });
-
-    // Hero scroll trigger - keep logo in hero state
-    ScrollTrigger.create({
-        trigger: hero,
-        start: 'top top',
-        end: 'bottom 20%',
-        onEnter: () => {
-            gsap.to(floatingLogo, {
-                opacity: 1,
-                rotation: 0,
-                scale: 1,
-                top: '20vh',
-                left: '50%',
-                xPercent: 0,
-                yPercent: 0,
-                clearProps: 'transform',
-                duration: 0.3,
-                onComplete: () => {
-                    floatingLogo.style.transform = 'translateX(-50%)';
-                }
-            });
-        },
-        onEnterBack: () => {
-            gsap.to(floatingLogo, {
-                opacity: 1,
-                rotation: 0,
-                scale: 1,
-                top: '20vh',
-                left: '50%',
-                xPercent: 0,
-                yPercent: 0,
-                clearProps: 'transform',
-                duration: 0.3,
-                onComplete: () => {
-                    floatingLogo.style.transform = 'translateX(-50%)';
-                }
-            });
-        }
-    });
-
-    // Logo transitions from hero to projects
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: projectsSection,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: 1
-        }
-    })
-    .to(floatingLogo, {
-        scale: 0.6
-    });
 
     projectShowcases.forEach((showcase, index) => {
         const visualContainer = showcase.querySelector('.visual-container');
         const projectVisual = showcase.querySelector('.project-visual');
-        const projectId = showcase.getAttribute('data-project');
 
-        // Create logo clone for this visual
+        // Create logo clone for this project's visual
         const logoClone = document.createElement('div');
         logoClone.className = 'logo-in-visual';
         logoClone.style.backgroundImage = 'url(logo.jpg)';
         logoClone.style.opacity = '0';
         projectVisual.appendChild(logoClone);
 
-        // Onramp: logo enters visual, visual fades in, logo clone appears
-        const onrampTL = gsap.timeline({
+        // Project enters viewport: visual and logo clone fade in
+        gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
                 start: 'top 80%',
                 end: 'top 20%',
                 scrub: 1
             }
-        });
+        })
+        .fromTo(visualContainer,
+            { opacity: 0, scale: 0.9 },
+            { opacity: 1, scale: 1, immediateRender: false }, 0)
+        .fromTo(logoClone,
+            { opacity: 0, scale: 0.8 },
+            { opacity: 1, scale: 1, immediateRender: false }, 0.2);
 
-        onrampTL
-            .fromTo(floatingLogo,
-                { opacity: 0.3, scale: 0.3, rotation: -180 },
-                { opacity: 0, scale: 0.1, rotation: 0, immediateRender: false }, 0)  // Fade out main logo
-            .fromTo(visualContainer,
-                { opacity: 0, scale: 0.8 },
-                { opacity: 1, scale: 1, immediateRender: false }, 0)
-            .fromTo(logoClone,
-                { opacity: 0, scale: 0.5 },
-                { opacity: 1, scale: 1, immediateRender: false }, 0.3);  // Fade in logo clone
-
-        // Middle: keep floating logo hidden while inside project
-        ScrollTrigger.create({
-            trigger: showcase,
-            start: 'top 20%',
-            end: 'bottom 40%',
-            onEnter: () => gsap.set(floatingLogo, { opacity: 0, scale: 0.1 }),
-            onEnterBack: () => gsap.set(floatingLogo, { opacity: 0, scale: 0.1 }),
-            onLeave: () => {}, // Offramp will handle this
-            onLeaveBack: () => {} // Onramp will handle this
-        });
-
-        // Offramp: logo clone leaves, visual fades, main logo returns
+        // Project exits viewport: visual and logo clone fade out
         gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
-                start: 'bottom 40%',
+                start: 'bottom 50%',
                 end: 'bottom 10%',
                 scrub: 1
             }
         })
-        .to(logoClone, { opacity: 0, scale: 0.5, immediateRender: false }, 0)
-        .to(visualContainer, { opacity: 0.3, scale: 0.9, immediateRender: false }, 0)
-        .to(floatingLogo, { opacity: 0.3, scale: 0.3, rotation: 180, immediateRender: false }, 0.3);
+        .to(logoClone, { opacity: 0, scale: 0.8, immediateRender: false }, 0)
+        .to(visualContainer, { opacity: 0.5, scale: 0.95, immediateRender: false }, 0);
     });
 }
 
