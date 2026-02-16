@@ -428,15 +428,31 @@ body {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, rgba(139, 26, 26, 0.05), rgba(184, 83, 78, 0.05));
-    padding: 80px;
+    padding: 80px 60px;
     opacity: 0;
     transform: scale(0.8);
+    text-align: center;
+}
+
+.visual-container h3 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--dark);
+    letter-spacing: -2px;
+}
+
+.visual-container .project-tagline {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-bottom: 50px;
 }
 
 .project-icon-wrapper {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 60px;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 40px;
     opacity: 0.9;
 }
 
@@ -447,7 +463,7 @@ body {
 
 .project-visual {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
 }
 
 /* Right Side: Scrolling Text */
@@ -461,20 +477,7 @@ body {
     min-height: 200vh;
 }
 
-.text-inner h3 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--dark);
-    letter-spacing: -2.5px;
-}
-
-.text-inner .project-tagline {
-    font-size: 1.75rem;
-    color: var(--text-light);
-    font-weight: 400;
-    margin-bottom: 50px;
-}
+/* Titles now on left side, removed from right */
 
 .text-inner .project-description {
     font-size: 1.3rem;

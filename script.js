@@ -13,8 +13,10 @@ function generateProjectsHTML() {
 
         projectDiv.innerHTML = `
             <div class="desktop-layout">
-                <!-- Left: Fixed Visual + Logo Container -->
+                <!-- Left: Fixed Visual + Logo Container + Title -->
                 <div class="visual-container">
+                    <h3>${project.name}</h3>
+                    <p class="project-tagline">${project.tagline}</p>
                     <div class="project-icon-wrapper">
                         ${project.icon}
                     </div>
@@ -24,8 +26,6 @@ function generateProjectsHTML() {
                 <!-- Right: Scrolling Text -->
                 <div class="text-content">
                     <div class="text-inner">
-                        <h3>${project.name}</h3>
-                        <p class="project-tagline">${project.tagline}</p>
                         <div class="project-description">
                             ${project.description.map(para => `<p>${para}</p>`).join('')}
                         </div>
