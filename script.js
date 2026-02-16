@@ -64,29 +64,29 @@ function initLogoAnimations() {
         gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
-                start: 'top 80%',
-                end: 'top 20%',
-                scrub: 1
+                start: 'top 90%',
+                end: 'top 30%',
+                scrub: 1.5
             }
         })
         .fromTo(visualContainer,
-            { opacity: 0, scale: 0.9 },
-            { opacity: 1, scale: 1, immediateRender: false }, 0)
+            { opacity: 0, scale: 0.85, y: 30 },
+            { opacity: 1, scale: 1, y: 0, immediateRender: false }, 0)
         .fromTo(logoClone,
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, immediateRender: false }, 0.2);
+            { opacity: 0, scale: 0.7, rotation: -45 },
+            { opacity: 1, scale: 1, rotation: 0, immediateRender: false }, 0.3);
 
-        // Project exits viewport: visual and logo clone fade out
+        // Project exits viewport: visual and logo clone fade out with longer transition
         gsap.timeline({
             scrollTrigger: {
                 trigger: showcase,
-                start: 'bottom 50%',
-                end: 'bottom 10%',
-                scrub: 1
+                start: 'bottom 60%',
+                end: 'bottom 20%',
+                scrub: 1.5
             }
         })
-        .to(logoClone, { opacity: 0, scale: 0.8, immediateRender: false }, 0)
-        .to(visualContainer, { opacity: 0, scale: 0.95, immediateRender: false }, 0);
+        .to(logoClone, { opacity: 0, scale: 0.7, rotation: 45, immediateRender: false }, 0)
+        .to(visualContainer, { opacity: 0, scale: 0.85, y: -30, immediateRender: false }, 0);
     });
 }
 
