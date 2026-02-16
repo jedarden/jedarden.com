@@ -13,9 +13,15 @@ function parseMarkdown(text) {
 // Generate table of contents cards
 function generateTOC() {
     const projectsSection = document.querySelector('.projects');
+    const sectionTitle = projectsSection.querySelector('.section-title');
+    const sectionTagline = projectsSection.querySelector('.section-tagline');
     const sectionBlurb = projectsSection.querySelector('.section-blurb');
 
-    // Create TOC container
+    // Create TOC wrapper (contains title + grid for sticky scope on mobile)
+    const tocWrapper = document.createElement('div');
+    tocWrapper.className = 'toc-wrapper';
+
+    // Create TOC grid
     const tocContainer = document.createElement('div');
     tocContainer.className = 'toc-grid';
 
@@ -43,8 +49,16 @@ function generateTOC() {
         tocContainer.appendChild(card);
     });
 
-    // Insert after section blurb
-    sectionBlurb.insertAdjacentElement('afterend', tocContainer);
+    // On mobile, move title into wrapper for sticky scope
+    // On desktop, keep original structure
+    if (window.innerWidth <= 768) {
+        tocWrapper.appendChild(sectionTitle.cloneNode(true));
+        sectionTitle.style.display = 'none';
+    }
+    tocWrapper.appendChild(tocContainer);
+
+    // Insert wrapper after section blurb
+    sectionBlurb.insertAdjacentElement('afterend', tocWrapper);
 }
 
 // Generate floating navigation
