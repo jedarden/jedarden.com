@@ -55,17 +55,9 @@
     50% { box-shadow: 0 0 0 20px rgba(139, 26, 26, 0); }
 }
 
-/* Gait Analysis - Logo as tracked subject */
+/* Gait Analysis - Logo is embedded in SVG as the head */
 .visual-gait .logo-in-visual {
-    animation: gaitWalk 6s ease-in-out infinite;
-}
-
-@keyframes gaitWalk {
-    0% { left: 10%; top: 50%; transform: translateY(-50%) scale(1); }
-    25% { top: 45%; transform: translateY(-50%) scale(1.05); }
-    50% { left: 50%; top: 50%; transform: translateY(-50%) scale(1); }
-    75% { top: 45%; transform: translateY(-50%) scale(1.05); }
-    100% { left: 90%; top: 50%; transform: translateY(-50%) scale(1); }
+    display: none;
 }
 
 /* Options Trading - Logo as key indicator */
