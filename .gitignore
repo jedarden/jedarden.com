@@ -5,3 +5,6 @@ package-lock.json
 portfolio-react/node_modules/
 portfolio-react/dist/
 old-html-site/
+
+# Export archives (not tracked)
+jedarden.com-export.*
